@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4ffaf036fd46eb984e2fc8f15c2f42, type: 3}
+  m_Name: 4 fire_hand
+  m_EditorClassIdentifier: 
+  id: fire_hand
+  icon: {fileID: 21300000, guid: eb2cbd0984b4ed44ca3eb703d056ad04, type: 3}
+  rarity: 2
+  currencyType: 1
+  price: 100
+  booster: 16
+  color: {r: 0.9490197, g: 0.09411766, b: 0.1137255, a: 1}
+  texture: {fileID: 2800000, guid: a906cbbe2d465404a8521b2b637a96a0, type: 3}
+  particle: {fileID: 605322129208036338, guid: e27367905292e09488807fd0027669cc, type: 3}

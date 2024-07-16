@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5cbecec44984b2ea15a0c8994bbbfd8, type: 3}
+  m_Name: Enemy Data 20
+  m_EditorClassIdentifier: 
+  localizationID: Enemy_21
+  icon: {fileID: 21300000, guid: 0f4ba20deb6c5354c9c59074e1b3eb9d, type: 3}
+  health: 2e+16
+  strength: 17
+  rewardCount: 1000000
+  complexityType: 2
+  model: {fileID: -8679921383154817045, guid: e27f6aeaf8dfe20428be2d7f2d736ea2, type: 3}

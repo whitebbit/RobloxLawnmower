@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e00d5ce2174fb8a22d8af8caa10fcf, type: 3}
+  m_Name: StageConfig 4
+  m_EditorClassIdentifier: 
+  id: 4
+  teleportPrice: 50000000
+  giftBooster: 2500
+  petUnlocker: {fileID: 11400000, guid: dd6ae3ed36e6ae34083d701f8c890b7e, type: 2}
+  enemies:
+  - {fileID: 11400000, guid: 50e044be3d4b993478d801e7eca61e43, type: 2}
+  - {fileID: 11400000, guid: 56123c41b275db948889e4a2b6ad315a, type: 2}
+  - {fileID: 11400000, guid: 44b876066cfd0754ab4013b704ec7239, type: 2}
+  - {fileID: 11400000, guid: f538ca6dabb030b498e9ffd08915b42f, type: 2}
+  trainings:
+  - {fileID: 11400000, guid: a6e5e112c022f754bb95633f7e36d40f, type: 2}
+  - {fileID: 11400000, guid: 1d9631bd5988e724f95f52273be4dd64, type: 2}
+  - {fileID: 11400000, guid: f8e94beffe257cc4895bc08468241f30, type: 2}
+  - {fileID: 11400000, guid: 4a652d77f7b1c904695375af3279df2e, type: 2}
+  - {fileID: 11400000, guid: 245a842bcb1780d41bad701c64873af5, type: 2}

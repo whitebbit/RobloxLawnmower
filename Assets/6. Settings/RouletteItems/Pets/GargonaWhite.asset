@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cac3bca2d14b39ace880293787f63a, type: 3}
+  m_Name: GargonaWhite
+  m_EditorClassIdentifier: 
+  id: gargona_white_pet
+  dropPercent: 15
+  rarity: 3
+  prefab: {fileID: -2350354757554953372, guid: ca53cf3f5ca97b7488a8954f3bdab552, type: 3}
+  boosterType: 0
+  minBooster: 85
+  maxBooster: 91
+  icon: {fileID: 21300000, guid: c6fb7f3dcf6cd4b4f9d37113f4ba580b, type: 3}
