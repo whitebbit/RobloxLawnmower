@@ -32,6 +32,13 @@ namespace _3._Scripts.Player
 
         private void OnChange(float _, float newValue)
         {
+            if (newValue <= 0)
+            {
+                _text.SetVariable("value", 0.ToString());
+                Leaderboard.Leaderboard.Instance.UpdateScore(0);
+                return;
+            }
+            
             var normalizedPower = Math.Log10(newValue);
             var swords = Configuration.Instance.AllUpgrades.OrderBy(obj => obj.Booster).ToList();
             var characters = Configuration.Instance.AllCharacters.OrderBy(obj => obj.Booster).ToList();

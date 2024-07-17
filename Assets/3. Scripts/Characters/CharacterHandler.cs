@@ -19,6 +19,7 @@ namespace _3._Scripts.Characters
             var character = Configuration.Instance.AllCharacters.FirstOrDefault(c => c.ID == id)?.Prefab;
             Current = Object.Instantiate(character, parent);
             Current.transform.localPosition = -Vector3.up;
+            Current.Initialize();
         }
 
         private void DeleteCharacter()

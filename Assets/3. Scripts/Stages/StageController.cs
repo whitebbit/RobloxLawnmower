@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _3._Scripts.Saves;
 using _3._Scripts.Singleton;
+using _3._Scripts.Wallet;
 using GBGamesPlugin;
 using UnityEngine;
 using VInspector;
 
 namespace _3._Scripts.Stages
 {
-    [ExecuteInEditMode]
     public class StageController : Singleton<StageController>
     {
-        [SerializeField] private List<Stage> stages = new();
-        
+        [SerializeField] private List<World> worlds = new();
+     
         public Stage CurrentStage { get; private set; }
-        private int _activeStageID;
-        private int _currentID;
-        
+        public int CurrentStageID { get; private set; }
+
         private void Start()
         {
 #if UNITY_EDITOR
@@ -29,65 +29,52 @@ namespace _3._Scripts.Stages
 
         public void TeleportToNextStage()
         {
-            _currentID += 1;
-            if (_currentID > GBGames.saves.stageID)
-                GBGames.saves.stageID = _currentID;
-            TeleportToStage(_currentID);
+            CurrentStageID += 1;
+            if (CurrentStageID > GBGames.saves.stageID)
+                GBGames.saves.stageID = CurrentStageID;
+            TeleportToStage(CurrentStageID);
             GBGames.instance.Save();
         }
 
         public void TeleportToPreviousStage()
         {
-            _currentID -= 1;
-            TeleportToStage(_currentID);
+            CurrentStageID -= 1;
+            TeleportToStage(CurrentStageID);
         }
 
-        private void TeleportToStage(int id)
+        public void TeleportToNextWorld()
         {
-            var stage = stages.FirstOrDefault(s => s.ID == id);
+            GBGames.saves.worldID += 1;
+            GBGames.saves.stageID = 0;
             
-            if (stage == null) return;
-            
-            CurrentStage = stage;
-            _currentID = id;
+            Player.Player.instance.Reborn();
+            TeleportToStage(0);
+        }
 
-            foreach (var s in stages)
+        private void TeleportToStage(int stageID)
+        {
+            var world = worlds.FirstOrDefault(w => w.ID == GBGames.saves.worldID);
+
+            if (world == null) return;
+
+            var stage = world.Stages.FirstOrDefault(s => s.ID == stageID);
+
+            if (stage == null) return;
+
+            CurrentStage = stage;
+            CurrentStageID = stageID;
+
+            foreach (var s in worlds.SelectMany(w => w.Stages))
             {
                 s.gameObject.SetActive(false);
             }
-            
+
             var spawnPoint = stage.SpawnPoint.position;
 
             stage.gameObject.SetActive(true);
             stage.Initialize();
-            
+
             Player.Player.instance.Teleport(spawnPoint);
         }
-
-#if UNITY_EDITOR
-
-        [Button]
-        private void NextStage()
-        {
-            _activeStageID = Math.Clamp(_activeStageID + 1, 0, stages.Count - 1);
-
-            foreach (var stage in stages)
-            {
-                var active = stage.ID == _activeStageID;
-                stage.gameObject.SetActive(active);
-            }
-        }
-
-        [Button]
-        private void PreviousStage()
-        {
-            _activeStageID = Math.Clamp(_activeStageID - 1, 0, stages.Count - 1);
-            foreach (var stage in stages)
-            {
-                var active = stage.ID == _activeStageID;
-                stage.gameObject.SetActive(active);
-            }
-        }
-#endif
     }
 }

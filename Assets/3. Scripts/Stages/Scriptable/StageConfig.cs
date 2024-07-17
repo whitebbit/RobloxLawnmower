@@ -14,11 +14,9 @@ namespace _3._Scripts.Stages.Scriptable
         [SerializeField] private float giftBooster;
         [Header("Configs")] 
         [SerializeField] private PetUnlockerConfig petUnlocker;
-        [SerializeField] private List<TrainingConfig> trainings = new ();
 
         public float GiftBooster => giftBooster;
         public PetUnlockerConfig PetUnlocker => petUnlocker;
-        public List<TrainingConfig> Trainings => trainings;
         public int ID => id;
 
         public float TeleportPrice => teleportPrice;

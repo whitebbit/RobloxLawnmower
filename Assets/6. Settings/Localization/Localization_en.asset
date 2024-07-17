@@ -318,10 +318,81 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3203987063427825692
+  - m_Id: 19388024449740800
+    m_Localized: Daily Rewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19475518386155520
+    m_Localized: Day {value}
+    m_Metadata:
+      m_Items:
+      - rid: 3203987063427825692
+  - m_Id: 19735562637881344
+    m_Localized: Claim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19915601664880640
+    m_Localized: Next world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917134695575552
+    m_Localized: Moving to the next world, you will be reborn. All current progress
+      is reset. You will continue playing with a X1.5 power multiplier in a new world.
+      Continue?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917777615269888
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917920150302720
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19919797663379456
+    m_Localized: New world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20217572263276544
+    m_Localized: Achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225202218151936
+    m_Localized: Defeat 1 enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225313279127552
+    m_Localized: Defeat 20 enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225397546889216
+    m_Localized: Defeat 100 enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225657291747328
+    m_Localized: Get a legendary pet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20238777917714432
+    m_Localized: Accumulate 100 slap power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20239042725097472
+    m_Localized: Accumulate 10000 slap power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20239140347523072
+    m_Localized: Accumulate 1000000 slap power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21600309956714496
+    m_Localized: News and bonuses in Telegram
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 3203987063427825692
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0020c279aeae23000020826808b023000020828f238c2800002002cf109128000020027d2c9228000020022c34922800002082843d922800002082f0439228000020029a4b9228000020023678073600002042d64a1f3800
+        m_Entries: 0020c279aeae23000020826808b023000020828f238c2800002002cf109128000020027d2c9228000020022c34922800002082843d922800002082f0439228000020029a4b9228000020023678073600002042d64a1f38000030397be1304500

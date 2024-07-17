@@ -6,6 +6,7 @@ using _3._Scripts.Config;
 using _3._Scripts.MiniGame;
 using _3._Scripts.Pets;
 using _3._Scripts.Player.Scriptables;
+using _3._Scripts.Saves;
 using _3._Scripts.Trails;
 using _3._Scripts.Upgrades;
 using _3._Scripts.Wallet;
@@ -79,8 +80,25 @@ namespace _3._Scripts.Player
             transform.position = position;
             _characterController.enabled = true;
         }
+        public void Reborn()
+        {
+            WalletManager.FirstCurrency = 0;
+            WalletManager.SecondCurrency = 0;
+            
+            GBGames.saves.petsSave = new PetSave();
+            GBGames.saves.characterSaves = new SaveHandler<string>();
+            GBGames.saves.upgradeSaves = new SaveHandler<string>();
+            
+            DefaultDataProvider.Instance.SetPlayerDefaultData();
 
+            Initialize();
+        }
         private void Start()
+        {
+            Initialize();
+        }
+        
+        private void Initialize()
         {
             lawnmower.Initialize(test);
             
@@ -88,7 +106,6 @@ namespace _3._Scripts.Player
             InitializePets();
             InitializeUpgrade();
         }
-
         private void Update()
         {
             if (isFight && Input.GetMouseButtonDown(0))
@@ -113,6 +130,7 @@ namespace _3._Scripts.Player
         {
             var player = transform;
             var position = player.position + player.right * 2;
+            PetsHandler.ClearPets();
             foreach (var petSaveData in GBGames.saves.petsSave.selected)
             {
                 PetsHandler.CreatePet(petSaveData, position);

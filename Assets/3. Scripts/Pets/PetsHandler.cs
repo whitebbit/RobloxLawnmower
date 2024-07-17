@@ -24,6 +24,15 @@ namespace _3._Scripts.Pets
 
         public void RemovePet(Pet pet) => Pets.Remove(pet);
 
+        public void ClearPets()
+        {
+            foreach (var pet in Pets)
+            {
+                Object.Destroy(pet.gameObject);
+            }
+            
+            Pets.Clear();
+        }
         public void DestroyPet(int id)
         {
             var pet = Pets.FirstOrDefault(p => p.Data.id == id);

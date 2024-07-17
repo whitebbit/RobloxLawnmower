@@ -11,6 +11,7 @@ namespace _3._Scripts.Achievements
     {
         public List<Achievement> achievements = new();
         public event Action OnAchievementComplete;
+
         public Achievement Get(string achievementID)
         {
             return GetOrCreateAchievement(achievementID);
@@ -23,11 +24,12 @@ namespace _3._Scripts.Achievements
 
             achievement.progress += progress;
             if (data is not null && achievement.progress < data.Goal) return;
-            
+            if (achievement.completed) return;
+
             achievement.completed = true;
             OnAchievementComplete?.Invoke();
         }
-        
+
         private Achievement GetOrCreateAchievement(string achievementID)
         {
             var get = GetAchievement(achievementID);
@@ -38,7 +40,7 @@ namespace _3._Scripts.Achievements
         {
             return achievements.FirstOrDefault(a => a.id == achievementID);
         }
-        
+
         private Achievement CreateAchievement(string achievementID)
         {
             var newAchievement = new Achievement

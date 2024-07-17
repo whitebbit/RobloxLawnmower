@@ -12,28 +12,19 @@ namespace _3._Scripts.Characters
     [ExecuteInEditMode]
     public class Character : MonoBehaviour
     {
-        private Animator _animator;
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-        }
+        [SerializeField]private Animator animator;
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-           
+            animator = GetComponent<Animator>();
         }
-#endif
         
-        private void Start()
-        {
-            Player.Player.instance.PlayerAnimator.SetAvatar(_animator.avatar);
-        }
+#endif
 
-        public void SetUpgrade(UpgradeItem upgrade)
+        public void Initialize()
         {
-           
+            Player.Player.instance.PlayerAnimator.SetAvatar(animator.avatar);
         }
-
     }
 }

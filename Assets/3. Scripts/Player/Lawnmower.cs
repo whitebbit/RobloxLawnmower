@@ -32,10 +32,9 @@ namespace _3._Scripts.Player
 
         private void Update()
         {
-            Vector3 newPosition = target.position + target.forward * positionOffset.x + target.up * positionOffset.y;
+            var newPosition = target.position + target.forward * positionOffset.x + target.up * positionOffset.y;
             transform.position = newPosition;
             transform.rotation = target.rotation;
-            
         }
 
         private void GrassSphereDetectorOnFound(Grass obj)

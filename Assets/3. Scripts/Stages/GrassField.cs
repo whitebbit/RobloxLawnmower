@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace _3._Scripts.Stages
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class GrassField : MonoBehaviour
     {
         [SerializeField] private Vector2 fieldSize;

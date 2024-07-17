@@ -16,11 +16,15 @@ namespace GBGamesPlugin
         public bool defaultLoaded;
         
         public SaveHandler<string> characterSaves = new();
+        public SaveHandler<string> trailSaves = new();
         public SaveHandler<string> upgradeSaves = new();
         public WalletSave walletSave = new();
         public PetSave petsSave = new();
+        public DailyRewardSave dailyReward = new();
         public AchievementSaves achievementSaves = new();
+        
         public int stageID;
+        public int worldID;
         public bool sound = true;
     }
 }

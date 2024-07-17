@@ -14,6 +14,10 @@ namespace _3._Scripts.Wallet
             get => GBGames.saves.walletSave.firstCurrency;
             set
             {
+                GBGames.saves.achievementSaves.Update("slap_100", value - GBGames.saves.walletSave.firstCurrency);
+                GBGames.saves.achievementSaves.Update("slap_10000", value - GBGames.saves.walletSave.firstCurrency);
+                GBGames.saves.achievementSaves.Update("slap_1000000", value - GBGames.saves.walletSave.firstCurrency);
+                
                 GBGames.saves.walletSave.firstCurrency = value;
                 OnFirstCurrencyChange?.Invoke(FirstCurrency, value);
             }

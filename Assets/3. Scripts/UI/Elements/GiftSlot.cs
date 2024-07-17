@@ -54,12 +54,9 @@ namespace _3._Scripts.UI.Elements
                 _firstInitialization = true;
             }
 
-            
             icon.sprite = item.Icon();
             icon.ScaleImage();
             title.text = string.IsNullOrEmpty(item.Title()) ? "" : $"x{item.Title()}";
-            
-        
         }
 
         private void GetReward()

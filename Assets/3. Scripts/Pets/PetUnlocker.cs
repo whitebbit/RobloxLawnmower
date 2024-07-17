@@ -6,6 +6,7 @@ using _3._Scripts.Interactive.Interfaces;
 using _3._Scripts.Pets.Scriptables;
 using _3._Scripts.UI;
 using _3._Scripts.UI.Elements;
+using _3._Scripts.UI.Enums;
 using _3._Scripts.UI.Panels;
 using _3._Scripts.Wallet;
 using GBGamesPlugin;
@@ -96,7 +97,10 @@ namespace _3._Scripts.Pets
             if (panel.Enabled) return;
 
             panel.Enabled = true;
-            panel.UnlockPet(GetRandomPet());
+            var pet = GetRandomPet();
+            panel.UnlockPet(pet);
+            if(pet.Rarity == Rarity.Legendary)
+                GBGames.saves.achievementSaves.Update("legendary_pet", 1);
         }
 
         public void StopInteract()

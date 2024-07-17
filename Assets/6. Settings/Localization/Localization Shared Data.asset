@@ -307,6 +307,78 @@ MonoBehaviour:
     m_Key: player_level
     m_Metadata:
       m_Items: []
+  - m_Id: 19388024449740800
+    m_Key: daily_reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19475518386155520
+    m_Key: day_number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19735562637881344
+    m_Key: claim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19737098218713088
+    m_Key: daily
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19915601664880640
+    m_Key: next_world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917134695575552
+    m_Key: next_world_warning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917777615269888
+    m_Key: yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19917920150302720
+    m_Key: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19919797663379456
+    m_Key: teleport_new
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20217572263276544
+    m_Key: achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225202218151936
+    m_Key: enemy_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225313279127552
+    m_Key: enemy_20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225397546889216
+    m_Key: enemy_100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20225657291747328
+    m_Key: legendary_pet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20238777917714432
+    m_Key: slap_100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20239042725097472
+    m_Key: slap_10000
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20239140347523072
+    m_Key: slap_1000000
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21600309956714496
+    m_Key: telegram_chanel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

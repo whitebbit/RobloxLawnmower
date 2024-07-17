@@ -3,6 +3,7 @@
     public enum TeleportType
     {
         Next,
-        Previous
+        Previous,
+        New
     }
 }

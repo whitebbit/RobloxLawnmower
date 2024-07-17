@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TrainingConfig 4
   m_EditorClassIdentifier: 
   count: 18000000
-  requiredCount: 7e+21
+  requiredCount: 7e+19
   color: {r: 0.8207547, g: 0.46120784, b: 0.127759, a: 1}

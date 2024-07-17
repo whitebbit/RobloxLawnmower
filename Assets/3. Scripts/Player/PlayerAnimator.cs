@@ -23,8 +23,13 @@ namespace _3._Scripts.Player
         }
 
         public void SetState(bool state) => _animator.enabled = state;
-        
-        public void SetAvatar(Avatar avatar) => _animator.avatar = avatar;
+
+        public void SetAvatar(Avatar avatar)
+        {
+            SetState(false);
+            _animator.avatar = avatar;
+            SetState(true);
+        }
 
         public void SetBool(string id, bool state)
         {

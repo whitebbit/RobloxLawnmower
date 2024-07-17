@@ -26,9 +26,9 @@ namespace _3._Scripts.Config
 
 
         public IEnumerable<PetData> AllPets => allPets;
+        public IEnumerable<AchievementData> AchievementData => achievementData;
 
         public IEnumerable<UpgradeItem> AllUpgrades => allUpgrades;
-        public IEnumerable<AchievementData> AchievementData => achievementData;
         public IEnumerable<CharacterItem> AllCharacters => allCharacters;
 
         public IEnumerable<TrailItem> AllTrails => allTrails;

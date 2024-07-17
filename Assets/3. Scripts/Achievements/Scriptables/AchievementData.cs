@@ -4,7 +4,7 @@ using VInspector;
 
 namespace _3._Scripts.Achievements.Scriptables
 {
-    [CreateAssetMenu(fileName = "AchievementData", menuName = "ScriptableObjects/AchievementData", order = 1)]
+    [CreateAssetMenu(fileName = "Achievement", menuName = "ScriptableObjects/Achievement", order = 1)]
     public class AchievementData : ScriptableObject
     {    
         [Tab("Main")]

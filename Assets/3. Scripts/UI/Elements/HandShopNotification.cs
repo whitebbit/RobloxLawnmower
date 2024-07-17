@@ -26,7 +26,8 @@ namespace _3._Scripts.UI.Elements
             // Получаем текущего персонажа игрока
             var current = Configuration.Instance.AllUpgrades
                 .FirstOrDefault(c => GBGames.saves.upgradeSaves.IsCurrent(c.ID));
-
+            if (current == null) return;
+            
             // Проверяем, есть ли персонажи, которые соответствуют условиям
             var upgrade = Configuration.Instance.AllUpgrades
                 .Where(c => c.Price <= newValue && !GBGames.saves.upgradeSaves.Unlocked(c.ID))

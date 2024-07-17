@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 3873958890301264661}
   - component: {fileID: 6198335190259746302}
   - component: {fileID: 4853379108946300624}
+  - component: {fileID: 2474468077402785406}
   m_Layer: 5
   m_Name: Table
   m_TagString: Untagged
@@ -835,7 +836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a73dd47f482a44dfa54aec47a76d5af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 868eddca46d664f5f9135b1bad3ec0fb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -845,6 +846,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2474468077402785406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720510737025920651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aabd8d49bb549f295a4b8fc6f2bc045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1140802548780607260}
+  title: {fileID: 4972510348175814129}
+  goal: {fileID: 1785903311082939325}
+  progress: {fileID: 1372781455044504191}
+  getReward: {fileID: 7657822761115802160}
+  rewardIcon: {fileID: 3036796254009217957}
+  rewardText: {fileID: 7551574515315271203}
 --- !u!1 &4032648173725596976
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,9 +19,7 @@ namespace _3._Scripts.Upgrades
         
         public void SetUpgrade(string id)
         {
-            var hand = Configuration.Instance.AllUpgrades.FirstOrDefault(u => u.ID == id);
-            if (hand is null) return;
-            _characterHandler.Current.SetUpgrade(hand);
+            
         }
     }
 }

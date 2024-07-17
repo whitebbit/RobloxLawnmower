@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
+using _3._Scripts.Actions;
+using _3._Scripts.Config;
 using _3._Scripts.FSM.Base;
+using _3._Scripts.Localization;
+using _3._Scripts.Upgrades;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using VInspector;
 using Random = UnityEngine.Random;
 
@@ -10,6 +17,7 @@ namespace _3._Scripts.Bots
     public class Bot : MonoBehaviour
     {
         [SerializeField] private UnitNavMeshAgent navMesh;
+        [SerializeField] private LocalizeStringEvent levelText;
         [Tab("States")] [SerializeField] private RunState runState;
         [SerializeField] private TrainingState trainingState;
 
@@ -18,7 +26,7 @@ namespace _3._Scripts.Bots
 
         private bool _running;
         private bool _training;
-
+        
         private void Awake()
         {
             _fsmHandler = new FSMHandler();
@@ -33,11 +41,6 @@ namespace _3._Scripts.Bots
             _fsmHandler.AddTransition(trainingState, new FuncPredicate(() => !_running && _training));
 
             _fsmHandler.StateMachine.SetState(_idleState);
-        }
-
-        private void Start()
-        {
-            StartCoroutine(ChangeState());
         }
 
         private void Update()
@@ -68,11 +71,20 @@ namespace _3._Scripts.Bots
                     case 2:
                         _running = false;
                         _training = true;
-                        time = Random.Range(5, 10);
+                        time = Random.Range(20, 30);
                         break;
                 }
                 yield return new WaitForSeconds(time);
             }
+        }
+
+        public void Initialize(Training[] trainings)
+        {
+            var hand = Configuration.Instance.AllUpgrades.ToList()[Random.Range(0, Configuration.Instance.AllUpgrades.Count())];
+            
+            levelText.SetVariable("value", Random.Range(100, 500).ToString());
+            trainingState.SetTrainings(trainings);
+            StartCoroutine(ChangeState());
         }
     }
 }

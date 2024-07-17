@@ -13,10 +13,12 @@ namespace _3._Scripts.Boosters
     {
         [Tab("Buttons")]
         [SerializeField] private BoosterButton autoClickerButton;
+        [SerializeField] private BoosterButton healthBooster;
         [SerializeField] private BoosterButton rewardBooster;
-        [SerializeField] private BoosterButton strengthBooster;
+        [SerializeField] private BoosterButton slapBooster;
         [Tab("View")]
-        [SerializeField] private Transform strengthBoosterView;
+        [SerializeField] private Transform healthBoosterView;
+        [SerializeField] private Transform slapBoosterView;
         
         [Tab("Debug")]
         [SerializeField] private List<BoosterState> boosters = new();
@@ -47,7 +49,8 @@ namespace _3._Scripts.Boosters
         
         private void Start()
         {
-            strengthBoosterView.gameObject.SetActive(false);
+            healthBoosterView.gameObject.SetActive(false);
+            slapBoosterView.gameObject.SetActive(false);
             
             InitializeButtons();
         }
@@ -57,17 +60,28 @@ namespace _3._Scripts.Boosters
             autoClickerButton.onActivateBooster += () => ChangeBoosterState("auto_clicker", true);
             autoClickerButton.onDeactivateBooster += () => ChangeBoosterState("auto_clicker", false);
 
+            healthBooster.onActivateBooster += () =>
+            {
+                healthBoosterView.gameObject.SetActive(true);
+                ChangeBoosterState("health_booster", true);
+            };
+            healthBooster.onDeactivateBooster += () =>
+            {
+                healthBoosterView.gameObject.SetActive(false);
+                ChangeBoosterState("health_booster", false);
+            };
+
             rewardBooster.onActivateBooster += () => ChangeBoosterState("reward_booster", true);
             rewardBooster.onDeactivateBooster += () => ChangeBoosterState("reward_booster", false);
 
-            strengthBooster.onActivateBooster += () =>
+            slapBooster.onActivateBooster += () =>
             {
-                strengthBoosterView.gameObject.SetActive(true);
+                slapBoosterView.gameObject.SetActive(true);
                 ChangeBoosterState("slap_booster", true);
             };
-            strengthBooster.onDeactivateBooster += () =>
+            slapBooster.onDeactivateBooster += () =>
             {
-                strengthBoosterView.gameObject.SetActive(false);
+                slapBoosterView.gameObject.SetActive(false);
                 ChangeBoosterState("slap_booster", false);
             };
         }
