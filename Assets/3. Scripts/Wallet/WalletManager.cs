@@ -34,7 +34,19 @@ namespace _3._Scripts.Wallet
                 OnSecondCurrencyChange?.Invoke(SecondCurrency, value);
             }
         }
+        
+        public static event Action<float, float> OnThirdCurrencyChange;
 
+        public static float ThirdCurrency
+        {
+            get => GBGames.saves.walletSave.thirdCurrency;
+            set
+            {
+                GBGames.saves.walletSave.thirdCurrency = value;
+                OnThirdCurrencyChange?.Invoke(ThirdCurrency, value);
+            }
+        }
+        
         private static void SpendByType(CurrencyType currencyType, float count)
         {
             switch (currencyType)
@@ -44,6 +56,9 @@ namespace _3._Scripts.Wallet
                     break;
                 case CurrencyType.Second:
                     SecondCurrency -= count;
+                    break;
+                case CurrencyType.Third:
+                    ThirdCurrency -= count;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(currencyType), currencyType, null);
@@ -60,6 +75,9 @@ namespace _3._Scripts.Wallet
                 case CurrencyType.Second:
                     SecondCurrency += count;
                     break;
+                case CurrencyType.Third:
+                    ThirdCurrency += count;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(currencyType), currencyType, null);
             }
@@ -71,6 +89,7 @@ namespace _3._Scripts.Wallet
             {
                 CurrencyType.First => FirstCurrency >= count,
                 CurrencyType.Second => SecondCurrency >= count,
+                CurrencyType.Third => ThirdCurrency >= count,
                 _ => throw new ArgumentOutOfRangeException(nameof(currencyType), currencyType, null)
             };
 
@@ -86,6 +105,7 @@ namespace _3._Scripts.Wallet
             {
                 CurrencyType.First => FirstCurrency,
                 CurrencyType.Second => SecondCurrency,
+                CurrencyType.Third => ThirdCurrency,
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
         }

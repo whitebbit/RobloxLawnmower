@@ -3,6 +3,7 @@
     public enum CurrencyType
     {
         First,
-        Second
+        Second,
+        Third
     }
 }

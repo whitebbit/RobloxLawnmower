@@ -7,5 +7,6 @@ namespace _3._Scripts.Saves
     {
         public float firstCurrency;
         public float secondCurrency;
+        public float thirdCurrency;
     }
 }

@@ -32,7 +32,7 @@ namespace _3._Scripts.Player
         private float _turnSmoothVelocity;
         private PlayerAnimator _animator;
         private float _currentSpeed;
-        
+        public bool Blocked { get; set; }
         private void Awake()
         {
             _animator = GetComponent<PlayerAnimator>();
@@ -49,7 +49,7 @@ namespace _3._Scripts.Player
         private void Update()
         {
             ResetVelocity();
-            if (UIManager.Instance.Active || InterstitialsTimer.Instance.Active)
+            if (UIManager.Instance.Active || InterstitialsTimer.Instance.Active || Blocked)
             {
                 _animator.SetSpeed(0);
                 _animator.SetGrounded(true);

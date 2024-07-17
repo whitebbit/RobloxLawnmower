@@ -389,6 +389,14 @@ MonoBehaviour:
     m_Localized: News and bonuses in Telegram
     m_Metadata:
       m_Items: []
+  - m_Id: 22725984629432320
+    m_Localized: Finish Your Workout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22726583173390336
+    m_Localized: Tap to train
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

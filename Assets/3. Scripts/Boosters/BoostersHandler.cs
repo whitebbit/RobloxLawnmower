@@ -49,8 +49,8 @@ namespace _3._Scripts.Boosters
         
         private void Start()
         {
-            healthBoosterView.gameObject.SetActive(false);
-            slapBoosterView.gameObject.SetActive(false);
+            //healthBoosterView.gameObject.SetActive(false);
+            //slapBoosterView.gameObject.SetActive(false);
             
             InitializeButtons();
         }

@@ -13,8 +13,7 @@ namespace _3._Scripts.Currency
 {
     public class CurrencyWidget : MonoBehaviour
     {
-        [Tab("Components")]
-        [SerializeField] private CurrencyType type;
+        [Tab("Components")] [SerializeField] private CurrencyType type;
         [SerializeField] private TMP_Text text;
         [SerializeField] private Image icon;
         [SerializeField] private Image table;
@@ -40,6 +39,9 @@ namespace _3._Scripts.Currency
                 case CurrencyType.Second:
                     OnChange(0, WalletManager.SecondCurrency);
                     break;
+                case CurrencyType.Third:
+                    OnChange(0, WalletManager.ThirdCurrency);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -57,6 +59,10 @@ namespace _3._Scripts.Currency
                     WalletManager.OnSecondCurrencyChange += OnChange;
                     OnChange(0, WalletManager.SecondCurrency);
                     break;
+                case CurrencyType.Third:
+                    OnChange(0, WalletManager.ThirdCurrency);
+                    WalletManager.OnThirdCurrencyChange += OnChange;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -71,6 +77,9 @@ namespace _3._Scripts.Currency
                     break;
                 case CurrencyType.Second:
                     WalletManager.OnSecondCurrencyChange -= OnChange;
+                    break;
+                case CurrencyType.Third:
+                    WalletManager.OnThirdCurrencyChange -= OnChange;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
