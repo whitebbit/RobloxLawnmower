@@ -10,11 +10,9 @@ namespace _3._Scripts.Player
 {
     public class Lawnmower : MonoBehaviour
     {
-        [Tab("Follow")] 
-        [SerializeField] private Transform target;
+        [Tab("Follow")] [SerializeField] private Transform target;
         [SerializeField] private Vector3 positionOffset;
-        [Tab("Components")] 
-        [SerializeField] private MeshRenderer meshRenderer;
+        [Tab("Components")] [SerializeField] private MeshRenderer meshRenderer;
         [SerializeField] private GrassSphereDetector grassSphereDetector;
 
         private Transform _effect;
@@ -22,13 +20,14 @@ namespace _3._Scripts.Player
         private void OnEnable()
         {
             grassSphereDetector.OnFound += GrassSphereDetectorOnFound;
+            grassSphereDetector.DetectorState(true);
         }
 
         private void OnDisable()
         {
             grassSphereDetector.OnFound -= GrassSphereDetectorOnFound;
+            grassSphereDetector.DetectorState(false);
         }
-
 
         private void Update()
         {
@@ -45,6 +44,7 @@ namespace _3._Scripts.Player
 
         public void Initialize(LawnmowerData data)
         {
+
             InitializeRadius(data);
             InitializeColor(data);
             InitializeEffect(data);
@@ -86,6 +86,5 @@ namespace _3._Scripts.Player
 
             Player.instance.Movement.ResetSpeed();
         }
-
     }
 }

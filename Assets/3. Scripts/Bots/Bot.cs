@@ -80,8 +80,6 @@ namespace _3._Scripts.Bots
 
         public void Initialize(Training[] trainings)
         {
-            var hand = Configuration.Instance.AllUpgrades.ToList()[Random.Range(0, Configuration.Instance.AllUpgrades.Count())];
-            
             levelText.SetVariable("value", Random.Range(100, 500).ToString());
             trainingState.SetTrainings(trainings);
             StartCoroutine(ChangeState());

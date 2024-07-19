@@ -22,6 +22,21 @@ namespace _3._Scripts.Detectors.OverlapSystem.Base
 
         protected readonly Collider[] OverlapResults = new Collider[32];
         private int overlapResultsCount;
+        private IEnumerator _coroutine;
+
+        public override void DetectorState(bool state)
+        {
+            if (state)
+            {
+                _coroutine = FindTargetsWithDelay(.2f);
+                StartCoroutine(_coroutine);
+            }
+            else
+            {
+                if (_coroutine != null)
+                    StopCoroutine(_coroutine);
+            }
+        }
 
         private void Start()
         {

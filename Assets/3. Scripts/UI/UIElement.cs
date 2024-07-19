@@ -20,16 +20,10 @@ namespace _3._Scripts.UI
             {
                 if (value)
                 {
-                    if (!(this is MiniGamePanel))
-                        GBGames.GameplayStopped();
-                    UIManager.Instance.Active = true;
                     Open();
                 }
                 else
                 {
-                    if (!(this is MiniGamePanel))
-                        GBGames.GameplayStarted();
-                    UIManager.Instance.Active = false;
                     Close();
                 }
 
@@ -38,7 +32,7 @@ namespace _3._Scripts.UI
             }
         }
 
-        private Tween currentTween;
+        private Tween _currentTween;
 
         public abstract void Initialize();
 
@@ -62,14 +56,14 @@ namespace _3._Scripts.UI
         {
             if (onTransition)
             {
-                currentTween?.Pause();
-                currentTween?.Kill();
-                currentTween = null;
+                _currentTween?.Pause();
+                _currentTween?.Kill();
+                _currentTween = null;
             }
 
             onTransition = true;
             gameObject.SetActive(true);
-            currentTween = InTransition.AnimateIn().OnComplete(() =>
+            _currentTween = InTransition.AnimateIn().OnComplete(() =>
             {
                 _enabled = true;
                 onTransition = false;
@@ -81,13 +75,13 @@ namespace _3._Scripts.UI
         {
             if (onTransition)
             {
-                currentTween?.Pause();
-                currentTween?.Kill();
-                currentTween = null;
+                _currentTween?.Pause();
+                _currentTween?.Kill();
+                _currentTween = null;
             }
 
             onTransition = true;
-            currentTween = OutTransition.AnimateOut().OnComplete(() =>
+            _currentTween = OutTransition.AnimateOut().OnComplete(() =>
             {
                 OnClose();
                 _enabled = false;

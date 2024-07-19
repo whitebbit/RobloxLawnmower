@@ -10,7 +10,7 @@ namespace _3._Scripts.Stages
         [SerializeField] private Transform model;
 
         private Collider _collider;
-
+        public bool Shaved { get; private set; }
         private void Awake()
         {
             _collider = GetComponent<Collider>();
@@ -19,6 +19,7 @@ namespace _3._Scripts.Stages
         {
             model.gameObject.SetActive(true);
             _collider.enabled = true;
+            Shaved = false;
         }
 
         public void CutDown()
@@ -26,6 +27,9 @@ namespace _3._Scripts.Stages
             particle.Play();
             model.gameObject.SetActive(false);
             _collider.enabled = false;
+            Shaved = true;
+            
+            StageController.Instance.CurrentStage.OnGrassCutDown();
         }
     }
 }

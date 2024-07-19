@@ -54,6 +54,8 @@ namespace GBGamesPlugin
         private static void LoadRemoteConfig(Dictionary<string, object> options = default)
         {
             if(!remoteConfigIsSupported) return;
+            
+            options ??= new Dictionary<string, object>();
             Bridge.remoteConfig.Get(options, OnRemoteConfigGetCompleted);
         }
 

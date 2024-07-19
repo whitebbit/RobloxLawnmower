@@ -31,6 +31,7 @@ namespace _3._Scripts.UI.Panels
 
         protected override void OnOpen()
         {
+            base.OnOpen();
             SetSlotsState();
         }
 

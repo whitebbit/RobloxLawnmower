@@ -44,12 +44,14 @@ namespace _3._Scripts.UI.Panels
 
         protected override void OnOpen()
         {
+            base.OnOpen();
             InitializeSlots();
             UpdateCount();
         }
 
         protected override void OnClose()
         {
+            base.OnClose();
             DeleteSlots();
         }
 

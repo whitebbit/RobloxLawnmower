@@ -33,6 +33,8 @@ namespace _3._Scripts.Player
         private PlayerAnimator _animator;
         private float _currentSpeed;
         public bool Blocked { get; set; }
+        public bool JumpBlocked { get; set; }
+
         private void Awake()
         {
             _animator = GetComponent<PlayerAnimator>();
@@ -75,7 +77,7 @@ namespace _3._Scripts.Player
                 TurnSmoothTime);
             var moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             var currentSpeed = Mathf.Clamp(this._currentSpeed, 0.1f, 15);
-            
+
             transform.rotation = Quaternion.Euler(0, angle, 0);
             _characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
             PlayFootstepSound();
@@ -84,7 +86,7 @@ namespace _3._Scripts.Player
         public void SetSpeed(float resistance)
         {
             var playerStrength = WalletManager.FirstCurrency;
-            
+
             if (playerStrength < resistance)
             {
                 var resistanceFactor = playerStrength / resistance;
@@ -95,11 +97,12 @@ namespace _3._Scripts.Player
                 var strengthFactor = (playerStrength - resistance) / resistance;
                 _currentSpeed = speed + (speed * strengthFactor);
             }
-            
+
             _currentSpeed = Mathf.Clamp(_currentSpeed, 2.5f, 12.5f);
         }
+
         public void ResetSpeed() => _currentSpeed = speed;
-        
+
         private void Look()
         {
             _input.CursorState();
@@ -115,6 +118,8 @@ namespace _3._Scripts.Player
 
         private void Jump()
         {
+            if (JumpBlocked) return;
+            
             if (_input.GetJump() && IsGrounded())
             {
                 _velocity.y = Mathf.Sqrt(jumpHeight * -2 * Gravity);

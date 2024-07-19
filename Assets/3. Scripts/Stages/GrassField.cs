@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _3._Scripts.Player;
 using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Stages.Scriptable;
@@ -12,7 +13,6 @@ namespace _3._Scripts.Stages
     public class GrassField : MonoBehaviour
     {
         [SerializeField] private Vector2 fieldSize;
-        [SerializeField] private GrassData test;
 
         public GrassData Data { get; private set; }
         private readonly List<Grass> _grasses = new();
@@ -26,19 +26,15 @@ namespace _3._Scripts.Stages
         {
             GetComponent<BoxCollider>().size = new Vector3(fieldSize.x, 1, fieldSize.y);
         }
-
-        private void Start()
-        {
-            Initialize(test);
-        }
-
-        public void Initialize(GrassData data)
+        
+        public IEnumerable<Grass> Initialize(GrassData data)
         {
             ClearField();
             FillTheField(data.Prefab);
             Data = data;
+            return _grasses;
         }
-
+        
         public void Respawn()
         {
             foreach (var grass in _grasses)

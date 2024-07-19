@@ -6,6 +6,9 @@ namespace _3._Scripts.Player
 {
     public class PlayerAnimator : MonoBehaviour
     {
+        [SerializeField] private AnimatorOverrideController baseAnimator;
+        [SerializeField] private AnimatorOverrideController mowingAnimator;
+        
         private Animator _animator;
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int Action = Animator.StringToHash("Action");
@@ -24,6 +27,11 @@ namespace _3._Scripts.Player
 
         public void SetState(bool state) => _animator.enabled = state;
 
+        public void SetMowingState(bool state)
+        {
+            _animator.runtimeAnimatorController = state ? mowingAnimator : baseAnimator;
+        }
+        
         public void SetAvatar(Avatar avatar)
         {
             SetState(false);

@@ -9,6 +9,13 @@ namespace _3._Scripts.Detectors
         public event Action<T> OnFound;
         public abstract bool ObjectsDetected();
 
+        public virtual void DetectorState(bool state){}
+        
+        public void ResetOnFound()
+        {
+            OnFound = null;
+        }
+
         protected void CallOnFound(T obj)
         {
             OnFound?.Invoke(obj);

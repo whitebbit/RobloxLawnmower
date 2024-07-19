@@ -20,18 +20,21 @@ namespace _3._Scripts.DailyRewards
 
         public void CheckForNew()
         {
-#if UNITY_EDITOR
-            CheckForNewMinute();
-#else
             CheckForNewDay();
-#endif
         }
 
         private void CheckForNewDay()
         {
-            var currentDate = DateTime.Now;
-            if (GBGames.saves.dailyReward.lastLoginDate.Date >= currentDate) return;
-            if ((currentDate - GBGames.saves.dailyReward.lastLoginDate).Days > 1)
+            var currentDate = DateTime.Now.Date;
+            var lastLoginDate = GBGames.saves.dailyReward.lastLoginDate.Date;
+
+            if (lastLoginDate >= currentDate) return;
+
+            if (lastLoginDate == DateTime.MinValue.Date)
+            {
+                GBGames.saves.dailyReward.currentStreak++;
+            }
+            else if ((currentDate - lastLoginDate).Days > 1)
             {
                 ResetRewards();
             }
@@ -43,26 +46,10 @@ namespace _3._Scripts.DailyRewards
             GBGames.saves.dailyReward.lastLoginDate = currentDate;
         }
 
-        private void CheckForNewMinute()
-        {
-            var currentDate = DateTime.Now;
-            if (GBGames.saves.dailyReward.lastLoginDate.Date >= currentDate) return;
-
-            if ((currentDate - GBGames.saves.dailyReward.lastLoginDate).TotalMinutes >= 1)
-            {
-                ResetRewards();
-            }
-            else
-            {
-                GBGames.saves.dailyReward.currentStreak++;
-            }
-
-            GBGames.saves.dailyReward.lastLoginDate = currentDate;
-        }
 
         public void CollectRewards()
         {
-            for (var i = 0; i <= GBGames.saves.dailyReward.currentStreak; i++)
+            for (var i = 0; i < GBGames.saves.dailyReward.currentStreak; i++)
             {
                 if (GBGames.saves.dailyReward.collectedRewards.Contains(i)) continue;
 

@@ -40,15 +40,15 @@ namespace _3._Scripts.Player
             }
             
             var normalizedPower = Math.Log10(newValue);
-            var swords = Configuration.Instance.AllUpgrades.OrderBy(obj => obj.Booster).ToList();
+            //var swords = Configuration.Instance.AllUpgrades.OrderBy(obj => obj.Booster).ToList();
             var characters = Configuration.Instance.AllCharacters.OrderBy(obj => obj.Booster).ToList();
 
-            var currentSword =
-                Configuration.Instance.AllUpgrades.FirstOrDefault(s => GBGames.saves.upgradeSaves.IsCurrent(s.ID));
+            /*var currentSword =
+                Configuration.Instance.AllUpgrades.FirstOrDefault(s => GBGames.saves.upgradeSaves.IsCurrent(s.ID));*/
             var currentCharacter =
                 Configuration.Instance.AllCharacters.FirstOrDefault(s => GBGames.saves.characterSaves.IsCurrent(s.ID));
             
-            double totalBooster = 1 + swords.IndexOf(currentSword) + characters.IndexOf(currentCharacter);
+            double totalBooster = 1 /*+ swords.IndexOf(currentSword)*/ + characters.IndexOf(currentCharacter);
             
             var playerLevel = (int)(normalizedPower * totalBooster);
             _text.SetVariable("value", playerLevel.ToString());

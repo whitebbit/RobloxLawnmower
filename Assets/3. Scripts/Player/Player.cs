@@ -8,6 +8,8 @@ using _3._Scripts.Pets;
 using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Saves;
 using _3._Scripts.Trails;
+using _3._Scripts.UI;
+using _3._Scripts.UI.Widgets;
 using _3._Scripts.Upgrades;
 using _3._Scripts.Wallet;
 using GBGamesPlugin;
@@ -65,13 +67,13 @@ namespace _3._Scripts.Player
 
         public float GetTrainingStrength(float strengthPerClick)
         {
-            var hand = Configuration.Instance.AllUpgrades.FirstOrDefault(
-                h => h.ID == GBGames.saves.upgradeSaves.current).Booster;
+            /*var hand = Configuration.Instance.AllUpgrades.FirstOrDefault(
+                h => h.ID == GBGames.saves.upgradeSaves.current).Booster;*/
             var pets = GBGames.saves.petsSave.selected.Sum(p => p.booster);
             var character = Configuration.Instance.AllCharacters.FirstOrDefault(
                 h => h.ID == GBGames.saves.characterSaves.current).Booster;
 
-            return (strengthPerClick + pets + character) * hand;
+            return (strengthPerClick + pets + character) /** hand*/;
         }
 
         public void Teleport(Vector3 position)
@@ -80,6 +82,7 @@ namespace _3._Scripts.Player
             transform.position = position;
             _characterController.enabled = true;
         }
+        
         public void Reborn()
         {
             WalletManager.FirstCurrency = 0;
@@ -93,6 +96,18 @@ namespace _3._Scripts.Player
 
             Initialize();
         }
+
+        public void SetMowingState(bool state)
+        {
+            UIManager.Instance.GetWidget<GrassProgressWidget>().Enabled = state;
+            
+            Movement.JumpBlocked = state;
+            lawnmower.gameObject.SetActive(state);
+            Movement.ResetSpeed();
+            
+            Animator().SetMowingState(state);
+        }
+        
         private void Start()
         {
             Initialize();
@@ -100,12 +115,18 @@ namespace _3._Scripts.Player
         
         private void Initialize()
         {
-            lawnmower.Initialize(test);
-            
             InitializeCharacter();
             InitializePets();
             InitializeUpgrade();
+            InitializeLawnmower();
         }
+
+        private void InitializeLawnmower()
+        {
+            lawnmower.Initialize(test);
+            SetMowingState(false);
+        }
+
         private void Update()
         {
             if (isFight && Input.GetMouseButtonDown(0))
