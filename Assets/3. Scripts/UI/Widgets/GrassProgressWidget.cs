@@ -34,11 +34,13 @@ namespace _3._Scripts.UI.Widgets
 
         public void Setup(List<float> rewards)
         {
+            StageController.Instance.CurrentStage.OnGrassShaved -= OnGrassShaved;
+            
             for (var i = 0; i < buttons.Count; i++)
             {
                 var i1 = i;
                 buttons[i].RemoveAllListeners();
-                buttons[i].Interactable = false;
+                buttons[i].Interactable = progressBar.value >= 0.33 * (i + 1);
                 buttons[i].Initialize(rewards[i]);
                 buttons[i].AddListener(() => GetReward(rewards[i1]));
             }

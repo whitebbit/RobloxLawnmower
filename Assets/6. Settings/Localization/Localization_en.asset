@@ -397,10 +397,19 @@ MonoBehaviour:
     m_Localized: Tap to train
     m_Metadata:
       m_Items: []
+  - m_Id: 23421241604055040
+    m_Localized: Lvl. {level_1} > <color=green>Lvl. {level_2}</color>
+    m_Metadata:
+      m_Items:
+      - rid: 3203987063427825692
+  - m_Id: 24460674742755328
+    m_Localized: Unlock
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 3203987063427825692
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0020c279aeae23000020826808b023000020828f238c2800002002cf109128000020027d2c9228000020022c34922800002082843d922800002082f0439228000020029a4b9228000020023678073600002042d64a1f38000030397be1304500
+        m_Entries: 0020c279aeae23000020826808b023000020828f238c2800002002cf109128000020027d2c9228000020022c34922800002082843d922800002082f0439228000020029a4b9228000020023678073600002042d64a1f38000030397be1304500002002c27e355300

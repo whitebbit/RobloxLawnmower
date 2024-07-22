@@ -25,7 +25,7 @@ namespace _3._Scripts.Stages
         public Transform SpawnPoint => spawnPoint;
         public float GiftBooster => config.GiftBooster;
         public int ID => config.ID;
-
+        public List<float> BaseRewardsCount => config.BaseRewardsCount;
         public event Action<float> OnGrassShaved;
 
         public void Initialize()
@@ -37,7 +37,6 @@ namespace _3._Scripts.Stages
             InitializeTraining();
 
             OnGrassShaved = null;
-            UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(config.RewardsCount);
         }
 
         public void OnGrassCutDown()

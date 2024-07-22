@@ -58,6 +58,12 @@ MonoBehaviour:
     m_Scale: 1
     m_Name: Currency_2
     m_HashCode: -2123509430
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 3
+    m_Scale: 1
+    m_Name: Currency_3
+    m_HashCode: -2123509429
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -85,7 +91,7 @@ MonoBehaviour:
     m_GlyphRect:
       m_X: 1
       m_Y: 392
-      m_Width: 119
+      m_Width: 118
       m_Height: 115
     m_Scale: 1.1
     m_AtlasIndex: 0
@@ -107,6 +113,22 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 199853684, guid: 92d96a066c6e10342931ced3be205f34, type: 3}
+  - m_Index: 3
+    m_Metrics:
+      m_Width: 122
+      m_Height: 119
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 95
+      m_HorizontalAdvance: 115
+    m_GlyphRect:
+      m_X: 370
+      m_Y: 393
+      m_Width: 122
+      m_Height: 119
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 621237649, guid: 92d96a066c6e10342931ced3be205f34, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
 --- !u!21 &4809694055335221269

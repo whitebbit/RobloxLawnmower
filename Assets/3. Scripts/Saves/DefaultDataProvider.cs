@@ -31,12 +31,6 @@ namespace _3._Scripts.Saves
         {
             GBGames.saves.characterSaves.current = defaultCharacter.ID;
             GBGames.saves.characterSaves.Unlock(defaultCharacter.ID);
-
-            GBGames.saves.trailSaves.current = defaultTrail.ID;
-            GBGames.saves.trailSaves.Unlock(defaultTrail.ID);
-
-            GBGames.saves.upgradeSaves.current = defaultUpgrade.ID;
-            GBGames.saves.upgradeSaves.Unlock(defaultUpgrade.ID);
         }
     }
 }

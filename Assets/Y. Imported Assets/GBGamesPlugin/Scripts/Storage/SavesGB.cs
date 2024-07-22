@@ -22,7 +22,8 @@ namespace GBGamesPlugin
         public PetSave petsSave = new();
         public DailyRewardSave dailyReward = new();
         public AchievementSaves achievementSaves = new();
-        
+
+        public int lawnmowerLevel;
         public int stageID;
         public int worldID;
         public bool sound = true;

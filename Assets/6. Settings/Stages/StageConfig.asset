@@ -15,10 +15,10 @@ MonoBehaviour:
   id: 0
   teleportPrice: 5000
   giftBooster: 1
-  rewardsCount:
+  baseRewardsCount:
+  - 1
   - 2
-  - 4
-  - 6
+  - 3
   petUnlocker: {fileID: 11400000, guid: cdc1652cebbd26a49b07cd01404f9cb0, type: 2}
   trainings:
   - {fileID: 11400000, guid: 2fd6c0dedb22a9a40acb5182ebbf9c1f, type: 2}

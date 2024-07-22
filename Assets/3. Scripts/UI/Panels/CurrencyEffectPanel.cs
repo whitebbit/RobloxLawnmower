@@ -11,8 +11,9 @@ namespace _3._Scripts.UI.Panels
 {
     public class CurrencyEffectPanel : Singleton<CurrencyEffectPanel>
     {
-        [SerializeField] private CurrencyWidget firstType;
-        [SerializeField] private CurrencyWidget secondType;
+        [SerializeField] private RectTransform firstType;
+        [SerializeField] private RectTransform secondType;
+        [SerializeField] private RectTransform thirdType;
 
         private RectTransform _rectTransform;
 
@@ -27,16 +28,16 @@ namespace _3._Scripts.UI.Panels
             {
                 CurrencyType.First => firstType,
                 CurrencyType.Second => secondType,
+                CurrencyType.Third => thirdType,
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
-            var widgetRect = widget.transform as RectTransform;
-            obj.DOMove(widgetRect.position, 1f).SetEase(Ease.InBack).OnComplete(() =>
+            obj.DOMove(widget.position, 1f).SetEase(Ease.InBack).OnComplete(() =>
             {                    
                 Destroy(obj.gameObject);
-                widgetRect.DOScale(1.15f, 0.1f).OnComplete(() =>
+                widget.DOScale(1.15f, 0.1f).OnComplete(() =>
                 {
                     WalletManager.EarnByType(type, count);
-                    widgetRect.DOScale(1, 0.1f);
+                    widget.DOScale(1, 0.1f);
                 });
             });
         }

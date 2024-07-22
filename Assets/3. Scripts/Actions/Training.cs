@@ -64,13 +64,13 @@ namespace _3._Scripts.Actions
 
         public void StartInteract()
         {
-           // if (WalletManager.GetQuantityByType(currencyType) < _requiredCount) return;
+            if (WalletManager.GetQuantityByType(currencyType) < _requiredCount) return;
             tutorial.gameObject.SetActive(true);
         }
 
         public void Interact()
         {
-            //if (WalletManager.GetQuantityByType(currencyType) < _requiredCount) return;
+            if (WalletManager.GetQuantityByType(currencyType) < _requiredCount) return;
 
             var panel = UIManager.Instance.GetPanel<TrainingPanel>();
             var player = Player.Player.instance;

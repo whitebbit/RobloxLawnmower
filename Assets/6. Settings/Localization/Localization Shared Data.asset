@@ -387,6 +387,14 @@ MonoBehaviour:
     m_Key: ' training_tutorial'
     m_Metadata:
       m_Items: []
+  - m_Id: 23421241604055040
+    m_Key: level_upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24460674742755328
+    m_Key: unlock
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

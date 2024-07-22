@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Boosters;
 using _3._Scripts.Characters;
@@ -7,6 +8,7 @@ using _3._Scripts.MiniGame;
 using _3._Scripts.Pets;
 using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Saves;
+using _3._Scripts.Stages;
 using _3._Scripts.Trails;
 using _3._Scripts.UI;
 using _3._Scripts.UI.Widgets;
@@ -20,7 +22,6 @@ namespace _3._Scripts.Player
     public class Player : Fighter
     {
         [SerializeField] private Lawnmower lawnmower;
-        [SerializeField] private LawnmowerData test;
 
         public PetsHandler PetsHandler { get; private set; }
         public CharacterHandler CharacterHandler { get; private set; }
@@ -67,13 +68,11 @@ namespace _3._Scripts.Player
 
         public float GetTrainingStrength(float strengthPerClick)
         {
-            /*var hand = Configuration.Instance.AllUpgrades.FirstOrDefault(
-                h => h.ID == GBGames.saves.upgradeSaves.current).Booster;*/
             var pets = GBGames.saves.petsSave.selected.Sum(p => p.booster);
             var character = Configuration.Instance.AllCharacters.FirstOrDefault(
                 h => h.ID == GBGames.saves.characterSaves.current).Booster;
 
-            return (strengthPerClick + pets + character) /** hand*/;
+            return (strengthPerClick * (pets + character));
         }
 
         public void Teleport(Vector3 position)
@@ -82,16 +81,16 @@ namespace _3._Scripts.Player
             transform.position = position;
             _characterController.enabled = true;
         }
-        
+
         public void Reborn()
         {
             WalletManager.FirstCurrency = 0;
             WalletManager.SecondCurrency = 0;
-            
+
             GBGames.saves.petsSave = new PetSave();
             GBGames.saves.characterSaves = new SaveHandler<string>();
             GBGames.saves.upgradeSaves = new SaveHandler<string>();
-            
+
             DefaultDataProvider.Instance.SetPlayerDefaultData();
 
             Initialize();
@@ -99,20 +98,30 @@ namespace _3._Scripts.Player
 
         public void SetMowingState(bool state)
         {
+            if (state)
+            {
+                var baseRewards = StageController.Instance.CurrentStage.BaseRewardsCount;
+                var currentLawnmower = Configuration.Instance.AllLawnmower
+                    .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel).CupsBooster;
+                var currentRewards = from baseReward in baseRewards select baseReward * currentLawnmower;
+
+                UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
+            }
+
             UIManager.Instance.GetWidget<GrassProgressWidget>().Enabled = state;
-            
+
             Movement.JumpBlocked = state;
             lawnmower.gameObject.SetActive(state);
             Movement.ResetSpeed();
-            
+
             Animator().SetMowingState(state);
         }
-        
+
         private void Start()
         {
             Initialize();
         }
-        
+
         private void Initialize()
         {
             InitializeCharacter();
@@ -121,9 +130,17 @@ namespace _3._Scripts.Player
             InitializeLawnmower();
         }
 
+        public void UpgradeLawnmower()
+        {
+            GBGames.saves.lawnmowerLevel += 1;
+            var data = Configuration.Instance.AllLawnmower.FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
+            lawnmower.Initialize(data);
+        }
+        
         private void InitializeLawnmower()
         {
-            lawnmower.Initialize(test);
+            var data = Configuration.Instance.AllLawnmower.FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
+            lawnmower.Initialize(data);
             SetMowingState(false);
         }
 

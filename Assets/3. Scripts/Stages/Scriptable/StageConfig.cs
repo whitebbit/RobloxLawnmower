@@ -12,13 +12,13 @@ namespace _3._Scripts.Stages.Scriptable
         [SerializeField, Min(0)] private float teleportPrice;
         [SerializeField] private float giftBooster;
         [Header("Configs")] [SerializeField]
-        private List<float> rewardsCount;
+        private List<float> baseRewardsCount;
         [SerializeField] private PetUnlockerConfig petUnlocker;
         [SerializeField] private List<TrainingConfig> trainings = new();
         [SerializeField] private List<GrassData> grassData = new();
 
 
-        public List<float> RewardsCount => rewardsCount;
+        public List<float> BaseRewardsCount => baseRewardsCount;
         public List<GrassData> GrassData => grassData;
         public List<TrainingConfig> Trainings => trainings;
         public float GiftBooster => giftBooster;
