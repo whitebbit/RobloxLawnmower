@@ -7,6 +7,7 @@ using _3._Scripts.UI.Interfaces;
 using _3._Scripts.UI.Panels;
 using _3._Scripts.UI.Transitions;
 using DG.Tweening;
+using GBGamesPlugin;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
@@ -62,6 +63,11 @@ namespace _3._Scripts.UI.Widgets
         {
             var effectInstance = CurrencyEffectPanel.Instance.SpawnEffect(effect, rewardType, reward);
             effectInstance.Initialize(rewardType, reward);
+            
+            GBGames.saves.achievementSaves.Update("cups_1", reward);
+            GBGames.saves.achievementSaves.Update("cups_100", reward);
+            GBGames.saves.achievementSaves.Update("cups_1000", reward);
+
             StageController.Instance.CurrentStage.RespawnGrassFields();
         }
     }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23955ed6305f4d10a6927b912c20964d, type: 3}
-  m_Name: enemy_1
+  m_Name: power_100
   m_EditorClassIdentifier: 
-  id: enemy_1
-  goal: 1
-  gift: {fileID: 11400000, guid: f24ef0ac5dfcc974797bcf0f1b7bcb66, type: 2}
-  titleID: enemy_1
-  icon: {fileID: 21300000, guid: 073e687a687a64137b4fe82914a8b1e1, type: 3}
+  id: power_100
+  goal: 100
+  gift: {fileID: 11400000, guid: b3bb57a14068e3f41885b97554dabd52, type: 2}
+  titleID: power_100
+  icon: {fileID: -1901006561, guid: 92d96a066c6e10342931ced3be205f34, type: 3}

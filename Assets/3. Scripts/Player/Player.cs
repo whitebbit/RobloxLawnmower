@@ -100,12 +100,7 @@ namespace _3._Scripts.Player
         {
             if (state)
             {
-                var baseRewards = StageController.Instance.CurrentStage.BaseRewardsCount;
-                var currentLawnmower = Configuration.Instance.AllLawnmower
-                    .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel).CupsBooster;
-                var currentRewards = from baseReward in baseRewards select baseReward * currentLawnmower;
-
-                UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
+                StageController.Instance.CurrentStage.SetupCurrentRewards();
             }
 
             UIManager.Instance.GetWidget<GrassProgressWidget>().Enabled = state;
@@ -132,11 +127,15 @@ namespace _3._Scripts.Player
 
         public void UpgradeLawnmower()
         {
+            var data = Configuration.Instance.AllLawnmower.FirstOrDefault(l =>
+                l.Level == GBGames.saves.lawnmowerLevel + 1);
+            if (data == null) return;
+
             GBGames.saves.lawnmowerLevel += 1;
-            var data = Configuration.Instance.AllLawnmower.FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
+            StageController.Instance.CurrentStage.SetupCurrentRewards();
             lawnmower.Initialize(data);
         }
-        
+
         private void InitializeLawnmower()
         {
             var data = Configuration.Instance.AllLawnmower.FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);

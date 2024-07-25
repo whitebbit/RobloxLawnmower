@@ -19,7 +19,6 @@ namespace _3._Scripts.Characters
         {
             animator = GetComponent<Animator>();
         }
-        
 #endif
 
         public void Initialize()

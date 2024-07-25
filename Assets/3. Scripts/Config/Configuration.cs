@@ -19,18 +19,22 @@ namespace _3._Scripts.Config
 {
     public class Configuration : Singleton<Configuration>
     {
-        [Tab("Currency")]
-        [SerializeField] private List<CurrencyData> currencyData = new();
+        [Tab("Remote")] [SerializeField]
+        private RemoteConfig<bool> interByTime;
+
+        
         [Tab("Upgrades")]
         [SerializeField] private List<CharacterItem> allCharacters = new();
         [SerializeField] private List<PetData> allPets = new();
         [SerializeField] private List<LawnmowerData> allLawnmower = new();
         [Tab("Other")]
+        [SerializeField] private List<CurrencyData> currencyData = new();
+
         [SerializeField] private List<AchievementData> achievementData = new();
         [Tab("Unused")]
         [SerializeField] private List<TrailItem> allTrails = new();
 
-
+        public bool InterByTime => interByTime.Value;
         private IEnumerable<PetData> AllPets => allPets;
         public IEnumerable<AchievementData> AchievementData => achievementData;
 

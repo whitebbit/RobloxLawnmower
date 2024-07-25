@@ -89,7 +89,9 @@ namespace GBGamesPlugin
             get => Bridge.advertisement.minimumDelayBetweenInterstitial;
             set => Bridge.advertisement.SetMinimumDelayBetweenInterstitial(value);
         }
-
+        public static bool CanShowInterstitial => Time.time - _lastAdShowTime >= minimumDelayBetweenInterstitial;
+        
+        private static float _lastAdShowTime;
         /// <summary>
         /// Показать межстраничную рекламу.
         /// </summary>
@@ -114,6 +116,7 @@ namespace GBGamesPlugin
                 case InterstitialState.Opened:
                     InterstitialOpenedCallback?.Invoke();
                     Message("Interstitial state - opened");
+                    _lastAdShowTime = Time.time;
                     if (_inGame)
                         PauseController.Pause(true);
                     break;

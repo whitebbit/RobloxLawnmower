@@ -167,114 +167,6 @@ MonoBehaviour:
     m_Key: final_boss
     m_Metadata:
       m_Items: []
-  - m_Id: 12874268221902848
-    m_Key: Enemy_01
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874542248366080
-    m_Key: Enemy_02
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874574657753088
-    m_Key: Enemy_03
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874590671605760
-    m_Key: Enemy_04
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874602436628480
-    m_Key: Enemy_05
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874619339673600
-    m_Key: Enemy_06
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874630819483648
-    m_Key: Enemy_07
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874653665857536
-    m_Key: Enemy_08
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874664478773248
-    m_Key: Enemy_09
-    m_Metadata:
-      m_Items: []
-  - m_Id: 12874683910983680
-    m_Key: Enemy_10
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072592320532480
-    m_Key: Enemy_11
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072594728062976
-    m_Key: Enemy_12
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072596133154816
-    m_Key: Enemy_13
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072656145256448
-    m_Key: Enemy_14
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072659270012928
-    m_Key: Enemy_15
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072793751982080
-    m_Key: Enemy_16
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072798210527232
-    m_Key: Enemy_17
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072801092014080
-    m_Key: Enemy_18
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072803629568000
-    m_Key: Enemy_19
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072878657277952
-    m_Key: Enemy_20
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072882633478144
-    m_Key: Enemy_21
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072887305932800
-    m_Key: Enemy_22
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072890581684224
-    m_Key: Enemy_23
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072958063841280
-    m_Key: Enemy_24
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072963357052928
-    m_Key: Enemy_25
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072965491953664
-    m_Key: Enemy_26
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15072968012730368
-    m_Key: Enemy_27
-    m_Metadata:
-      m_Items: []
   - m_Id: 15102772382932992
     m_Key: tutorial_fight
     m_Metadata:
@@ -348,15 +240,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20225202218151936
-    m_Key: enemy_1
+    m_Key: cups_1
     m_Metadata:
       m_Items: []
   - m_Id: 20225313279127552
-    m_Key: enemy_20
+    m_Key: cups_100
     m_Metadata:
       m_Items: []
   - m_Id: 20225397546889216
-    m_Key: enemy_100
+    m_Key: cups_1000
     m_Metadata:
       m_Items: []
   - m_Id: 20225657291747328
@@ -364,15 +256,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20238777917714432
-    m_Key: slap_100
+    m_Key: power_100
     m_Metadata:
       m_Items: []
   - m_Id: 20239042725097472
-    m_Key: slap_10000
+    m_Key: power_10000
     m_Metadata:
       m_Items: []
   - m_Id: 20239140347523072
-    m_Key: slap_1000000
+    m_Key: power_1000000
     m_Metadata:
       m_Items: []
   - m_Id: 21600309956714496

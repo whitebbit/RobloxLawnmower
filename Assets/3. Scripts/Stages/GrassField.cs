@@ -5,6 +5,7 @@ using _3._Scripts.Player;
 using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Stages.Scriptable;
 using _3._Scripts.Wallet;
+using TMPro;
 using UnityEngine;
 
 namespace _3._Scripts.Stages
@@ -13,7 +14,8 @@ namespace _3._Scripts.Stages
     public class GrassField : MonoBehaviour
     {
         [SerializeField] private Vector2 fieldSize;
-
+        [SerializeField] private TMP_Text recommendationText;
+        
         public GrassData Data { get; private set; }
         private readonly List<Grass> _grasses = new();
 
@@ -32,6 +34,7 @@ namespace _3._Scripts.Stages
             ClearField();
             FillTheField(data.Prefab);
             Data = data;
+            recommendationText.text = $"<sprite index=1>{data.Resistance}";
             return _grasses;
         }
         

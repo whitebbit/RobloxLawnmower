@@ -10,6 +10,7 @@ using _3._Scripts.UI.Panels;
 using _3._Scripts.Wallet;
 using Cinemachine;
 using DG.Tweening;
+using GBGamesPlugin;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using VInspector;
@@ -46,19 +47,26 @@ namespace _3._Scripts.Actions
             countText.SetVariable("value", WalletManager.ConvertToWallet((decimal) _count));
         }
 
+        private const float CooldownTime = .5f; // Cooldown time in seconds
+        private float _nextClickTime;
         private void Update()
         {
             if (!_canTraining) return;
 
-            if (Input.GetMouseButtonDown(0))
-                Action();
+            if (!Input.GetMouseButtonDown(0) || !(Time.time >= _nextClickTime)) return;
+            _nextClickTime = Time.time + CooldownTime;
+            Action();
         }
 
         private void Action()
         {
             var training = Player.Player.instance.GetTrainingStrength(_count);
             var obj = CurrencyEffectPanel.Instance.SpawnEffect(effect, currencyType, training);
-
+            
+            GBGames.saves.achievementSaves.Update("power_100", training);
+            GBGames.saves.achievementSaves.Update("power_10000", training);
+            GBGames.saves.achievementSaves.Update("power_1000000", training);
+            
             obj.Initialize(currencyType, training);
         }
 

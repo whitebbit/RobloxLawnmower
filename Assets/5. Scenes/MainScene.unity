@@ -5284,7 +5284,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4102795884334474421, guid: 7da219fae9e483a498428776f50cd93d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7da219fae9e483a498428776f50cd93d, type: 3}
 --- !u!4 &268285732 stripped
 Transform:
@@ -9172,7 +9175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &428037057
 Transform:
   m_ObjectHideFlags: 0
@@ -14445,7 +14448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679659125}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28678977, y: 3e-45, z: -1e-45, w: 0.95799357}
+  m_LocalRotation: {x: 0.28678977, y: -1e-45, z: -0, w: 0.95799357}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28264,6 +28267,9 @@ MonoBehaviour:
     canvasGroup: {fileID: 1214901155}
     duration: 0.1
   cancelButton: {fileID: 1789462422}
+  objectsToDeactivate:
+  - {fileID: 2112832606}
+  tutorialText: {fileID: 1768427274}
 --- !u!225 &1214901155
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -29332,8 +29338,9 @@ RectTransform:
   - {fileID: 1169351276}
   - {fileID: 90464840}
   - {fileID: 2112832606}
-  - {fileID: 1082079090}
   - {fileID: 1528188103}
+  - {fileID: 1941901344}
+  - {fileID: 1082079090}
   - {fileID: 1847630258}
   - {fileID: 6104933928479914854}
   - {fileID: 897236444}
@@ -29342,7 +29349,6 @@ RectTransform:
   - {fileID: 586029627}
   - {fileID: 1370491378}
   - {fileID: 1214901152}
-  - {fileID: 1941901344}
   m_Father: {fileID: 1215627398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29903,10 +29909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6059b012bab4d86ac6ffd497304e4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyData:
-  - {fileID: 11400000, guid: 283ebc26f035478489d2b7dba6ddca0a, type: 2}
-  - {fileID: 11400000, guid: 260de3df721b6dc44a53dd142a568481, type: 2}
-  - {fileID: 11400000, guid: bf409b3f2ab4f9040a262a7c7400e880, type: 2}
+  interByTime:
+    name: 
+    defaultValue: 0
   allCharacters:
   - {fileID: 11400000, guid: f5114b2b55d757d4cbe6185999ca148c, type: 2}
   - {fileID: 11400000, guid: 157ac3b1b0f49844796d3c4a5d605a1a, type: 2}
@@ -29965,6 +29970,10 @@ MonoBehaviour:
   allLawnmower:
   - {fileID: 11400000, guid: bf6aad17bec4b694bbd6bbf09cb549f5, type: 2}
   - {fileID: 11400000, guid: eeef63ccf40e5044a9402123d8126490, type: 2}
+  currencyData:
+  - {fileID: 11400000, guid: 283ebc26f035478489d2b7dba6ddca0a, type: 2}
+  - {fileID: 11400000, guid: 260de3df721b6dc44a53dd142a568481, type: 2}
+  - {fileID: 11400000, guid: bf409b3f2ab4f9040a262a7c7400e880, type: 2}
   achievementData:
   - {fileID: 11400000, guid: 8ac9a5d68ec1cc34bb2020d53ca0359f, type: 2}
   - {fileID: 11400000, guid: 60da0a64d2dfd5a46834f10004606e76, type: 2}
@@ -36899,7 +36908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4823357112513563487}
   positionOffset: {x: 2.55, y: -0.75, z: 0}
-  meshRenderer: {fileID: 5284501819756491491}
+  meshRenderer: {fileID: 4813334336642494062}
   grassSphereDetector: {fileID: 1602054447}
 --- !u!114 &1602054447
 MonoBehaviour:
@@ -39757,8 +39766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -166}
-  m_SizeDelta: {x: 628.693, y: 50}
+  m_AnchoredPosition: {x: 0, y: 405}
+  m_SizeDelta: {x: 1143.7927, y: 90.9659}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768427275
 MonoBehaviour:
@@ -39808,7 +39817,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.7
+  m_fontSize: 66.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -47096,7 +47105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1902715558
 Transform:
   m_ObjectHideFlags: 0
@@ -51091,7 +51100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095013992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30893397, y: -0.000000016364705, z: 0.0000000053156346, w: 0.95108354}
+  m_LocalRotation: {x: 0.30893397, y: 0.000000016364707, z: -0.000000005315635, w: 0.95108354}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

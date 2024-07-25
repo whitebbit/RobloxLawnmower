@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Actions;
 using _3._Scripts.Bots;
+using _3._Scripts.Config;
 using _3._Scripts.Pets;
 using _3._Scripts.Stages.Enums;
 using _3._Scripts.Stages.Scriptable;
 using _3._Scripts.UI;
 using _3._Scripts.UI.Widgets;
+using GBGamesPlugin;
 using UnityEngine;
 using VInspector;
 
@@ -39,6 +41,17 @@ namespace _3._Scripts.Stages
             OnGrassShaved = null;
         }
 
+        public void SetupCurrentRewards()
+        {
+            var baseRewards = StageController.Instance.CurrentStage.BaseRewardsCount;
+            var currentLawnmower = Configuration.Instance.AllLawnmower
+                .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
+            
+            var lawnmowerCupsBooster = currentLawnmower == null ? 1 : currentLawnmower.CupsBooster;
+            var currentRewards = from baseReward in baseRewards select baseReward * lawnmowerCupsBooster;
+            UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
+        }
+        
         public void OnGrassCutDown()
         {
             var shavedCount = _grasses.Count(g => g.Shaved);

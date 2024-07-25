@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23955ed6305f4d10a6927b912c20964d, type: 3}
-  m_Name: slap_10000
+  m_Name: cups_1000
   m_EditorClassIdentifier: 
-  id: slap_10000
-  goal: 10000
-  gift: {fileID: 11400000, guid: 655d05ca8f9f8d5408023ef53b2beda1, type: 2}
-  titleID: slap_10000
-  icon: {fileID: 21300000, guid: f9a3c397ff427924eb60ed561bc3c4c9, type: 3}
+  id: cups_1000
+  goal: 1000
+  gift: {fileID: 11400000, guid: 6a8fdd2fcecdb764198890e1b285adc9, type: 2}
+  titleID: cups_1000
+  icon: {fileID: 21300000, guid: fbfdd3734983346df82d027eebd04af5, type: 3}
