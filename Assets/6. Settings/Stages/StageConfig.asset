@@ -28,3 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3e52e7f28098b14a8d6ff4f7154ec48, type: 2}
   grassData:
   - {fileID: 11400000, guid: e418e068b57c6f54c8d03c3493ca180b, type: 2}
+  - {fileID: 11400000, guid: 609716b7c2cde0747b57fb37604abc47, type: 2}
+  - {fileID: 11400000, guid: 3c23b86f8b5581d46828913d66439a2c, type: 2}

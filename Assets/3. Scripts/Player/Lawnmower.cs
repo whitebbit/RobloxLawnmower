@@ -73,18 +73,14 @@ namespace _3._Scripts.Player
             _effect = Instantiate(data.EffectPrefab, transform);
         }
 
-        private void OnTriggerEnter(Collider other)
+
+        private void OnTriggerStay(Collider other)
         {
             if (!other.TryGetComponent(out GrassField field)) return;
 
             Player.instance.Movement.SetSpeed(field.Data.Resistance);
-        }
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (!other.TryGetComponent(out GrassField _)) return;
-
-            Player.instance.Movement.ResetSpeed();
         }
+        
     }
 }

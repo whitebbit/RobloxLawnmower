@@ -55,7 +55,7 @@ namespace _3._Scripts.UI.Widgets
 
             for (var i = 0; i < buttons.Count; i++)
             {
-                buttons[i].Interactable = percent >= 0.33 * (i + 1);
+                buttons[i].Interactable = percent >= 0.3 * (i + 1);
             }
         }
 

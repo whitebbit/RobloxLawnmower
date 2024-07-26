@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5207a8cd19d0430889e1980920670ae5, type: 3}
-  m_Name: GrassData
+  m_Name: GrassData 1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3126365701125331909, guid: 67f96daeac834e54c9938b8fa0555e0a, type: 3}
-  resistance: 20
+  grassColor: {r: 0.47058824, g: 0.3254902, b: 0.23529412, a: 1}
+  grassParticleColor: {r: 1, g: 0.48973858, b: 0.17254901, a: 1}
+  resistance: 500

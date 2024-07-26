@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using _3._Scripts.Stages.Scriptable;
+using DG.Tweening;
 using UnityEngine;
 using VInspector;
 
@@ -8,15 +11,36 @@ namespace _3._Scripts.Stages
     {
         [SerializeField] private ParticleSystem particle;
         [SerializeField] private Transform model;
+        [SerializeField] private List<MeshRenderer> renderers = new();
+        [SerializeField] private List<ParticleSystem> particles = new();
 
         private Collider _collider;
         public bool Shaved { get; private set; }
+        private Vector3 _startScale;
+
         private void Awake()
         {
+            _startScale = model.localScale;
             _collider = GetComponent<Collider>();
         }
+
+        public void Initialize(GrassData data)
+        {
+            foreach (var r in renderers)
+            {
+                r.material.DOColor(data.GrassColor, 0);
+            }
+
+            foreach (var ps in particles)
+            {
+                var main = ps.main;
+                main.startColor = data.GrassParticleColor;
+            }
+        }
+
         public void Respawn()
         {
+            model.localScale = _startScale;
             model.gameObject.SetActive(true);
             _collider.enabled = true;
             Shaved = false;
@@ -25,10 +49,10 @@ namespace _3._Scripts.Stages
         public void CutDown()
         {
             particle.Play();
-            model.gameObject.SetActive(false);
+            model.DOScale(Vector3.zero, 0.35f).SetEase(Ease.InOutBack).OnComplete(() => model.gameObject.SetActive(false));
             _collider.enabled = false;
             Shaved = true;
-            
+
             StageController.Instance.CurrentStage.OnGrassCutDown();
         }
     }

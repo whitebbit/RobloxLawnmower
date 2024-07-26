@@ -14,6 +14,7 @@ namespace _3._Scripts.Stages
     public class GrassField : MonoBehaviour
     {
         [SerializeField] private Vector2 fieldSize;
+        [SerializeField] private Grass prefab;
         [SerializeField] private TMP_Text recommendationText;
         
         public GrassData Data { get; private set; }
@@ -32,7 +33,7 @@ namespace _3._Scripts.Stages
         public IEnumerable<Grass> Initialize(GrassData data)
         {
             ClearField();
-            FillTheField(data.Prefab);
+            FillTheField(prefab, data);
             Data = data;
             recommendationText.text = $"<sprite index=1>{data.Resistance}";
             return _grasses;
@@ -56,7 +57,7 @@ namespace _3._Scripts.Stages
             _grasses.Clear();
         }
 
-        private void FillTheField(Grass obj)
+        private void FillTheField(Grass obj, GrassData data)
         {
             var objectSize = obj.transform.localScale;
             var columns = Mathf.FloorToInt(fieldSize.x / objectSize.x);
@@ -79,6 +80,7 @@ namespace _3._Scripts.Stages
                     );
 
                     var grass = Instantiate(obj, position, Quaternion.identity, transform);
+                    grass.Initialize(data);
                     _grasses.Add(grass);
                 }
             }
