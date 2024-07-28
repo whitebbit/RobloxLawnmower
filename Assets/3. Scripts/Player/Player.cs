@@ -106,6 +106,7 @@ namespace _3._Scripts.Player
             UIManager.Instance.GetWidget<GrassProgressWidget>().Enabled = state;
 
             Movement.JumpBlocked = state;
+            PlayerAnimator.SetGrounded(true);
             lawnmower.gameObject.SetActive(state);
             Movement.ResetSpeed();
 

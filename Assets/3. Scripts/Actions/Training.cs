@@ -104,7 +104,7 @@ namespace _3._Scripts.Actions
             player.transform.forward = transform.forward;
             player.PlayerAnimator.SetTrigger("StartTraining");
             player.PlayerAnimator.SetBool("Training", true);
-            
+            player.PetsHandler.SetState(false);
             _canTraining = true;
             tutorial.gameObject.SetActive(false);
         }
@@ -117,7 +117,8 @@ namespace _3._Scripts.Actions
                 
                 player.PlayerAnimator.SetBool("Training", false);
                 player.Movement.Blocked = false;
-                
+                player.PetsHandler.SetState(true);
+
                 InputHandler.Instance.SetState(true);
                 CameraController.Instance.SwapToMain();
                 UIManager.Instance.GetPanel<TrainingPanel>().Enabled = false;

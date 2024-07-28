@@ -30,7 +30,7 @@ namespace _3._Scripts.Stages
             Data = data;
             foreach (var r in renderers)
             {
-                r.material.DOColor(data.GrassColor, 0);
+                r.material = data.GrassMaterial;
             }
 
             foreach (var ps in particles)

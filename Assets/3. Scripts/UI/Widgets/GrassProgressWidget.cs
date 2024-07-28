@@ -58,7 +58,7 @@ namespace _3._Scripts.UI.Widgets
                 buttons[i].Interactable = percent >= 0.3 * (i + 1);
             }
         }
-
+        
         private void GetReward(float reward)
         {
             var effectInstance = CurrencyEffectPanel.Instance.SpawnEffect(effect, rewardType, reward);
