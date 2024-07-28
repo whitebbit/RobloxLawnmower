@@ -13,7 +13,7 @@ namespace _3._Scripts.Detectors.OverlapSystem.Base
 
         protected override int GetOverlapResult(Vector3 position)
         {
-            return Physics.OverlapSphereNonAlloc(position, radius, OverlapResults, searchLayer.value);
+            return Physics.OverlapSphereNonAlloc(position, radius, overlapResults, searchLayer.value);
         }
 
         protected override void DrawGizmos()

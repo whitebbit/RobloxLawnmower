@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: StageConfig
   m_EditorClassIdentifier: 
   id: 0
-  teleportPrice: 5000
+  maxBoltCount: 4
   giftBooster: 1
+  teleportPrice: 5000
+  petUnlocker: {fileID: 11400000, guid: cdc1652cebbd26a49b07cd01404f9cb0, type: 2}
   baseRewardsCount:
   - 1
   - 2
   - 3
-  petUnlocker: {fileID: 11400000, guid: cdc1652cebbd26a49b07cd01404f9cb0, type: 2}
   trainings:
   - {fileID: 11400000, guid: 2fd6c0dedb22a9a40acb5182ebbf9c1f, type: 2}
   - {fileID: 11400000, guid: 7f41d6afa3e17a84f87a474ab43c3698, type: 2}

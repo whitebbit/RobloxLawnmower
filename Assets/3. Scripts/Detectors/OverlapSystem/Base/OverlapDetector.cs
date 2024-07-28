@@ -20,34 +20,34 @@ namespace _3._Scripts.Detectors.OverlapSystem.Base
 
         [Header("Gizmos")] [SerializeField] protected CustomGizmos gizmos;
 
-        protected readonly Collider[] OverlapResults = new Collider[32];
-        private int overlapResultsCount;
+        protected readonly Collider[] overlapResults = new Collider[32];
+        private int _overlapResultsCount;
         private IEnumerator _coroutine;
+        private bool _canDetect;
 
         public override void DetectorState(bool state)
         {
-            if (state)
-            {
-                _coroutine = FindTargetsWithDelay(.2f);
-                StartCoroutine(_coroutine);
-            }
-            else
-            {
-                if (_coroutine != null)
-                    StopCoroutine(_coroutine);
-            }
+            _canDetect = state;
+        }
+
+        private void Update()
+        {
+            if (!_canDetect) return;
+
+            if (ObjectsDetected()) InteractWithFoundedObjects();
+            else CallOnFound(default);
         }
 
         private void Start()
         {
-            StartCoroutine(FindTargetsWithDelay(.2f));
+            _canDetect = true;
         }
 
         private void InteractWithFoundedObjects()
         {
-            for (var i = 0; i < overlapResultsCount; i++)
+            for (var i = 0; i < _overlapResultsCount; i++)
             {
-                if (!OverlapResults[i].TryGetComponent(out T findable))
+                if (!overlapResults[i].TryGetComponent(out T findable))
                 {
                     continue;
                 }
@@ -55,7 +55,7 @@ namespace _3._Scripts.Detectors.OverlapSystem.Base
                 if (considerObstacles)
                 {
                     var startPosition = startPoint.position;
-                    var colliderPosition = OverlapResults[i].transform.position;
+                    var colliderPosition = overlapResults[i].transform.position;
                     var hasObstacle = Physics.Linecast(startPosition, colliderPosition, obstacleLayer);
                     if (hasObstacle) continue;
                 }
@@ -67,9 +67,9 @@ namespace _3._Scripts.Detectors.OverlapSystem.Base
         public override bool ObjectsDetected()
         {
             var position = startPoint.TransformPoint(offset);
-            overlapResultsCount = GetOverlapResult(position);
+            _overlapResultsCount = GetOverlapResult(position);
 
-            return overlapResultsCount > 0;
+            return _overlapResultsCount > 0;
         }
 
         private IEnumerator FindTargetsWithDelay(float delay)

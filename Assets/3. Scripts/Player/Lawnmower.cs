@@ -16,6 +16,12 @@ namespace _3._Scripts.Player
         [SerializeField] private GrassSphereDetector grassSphereDetector;
 
         private Transform _effect;
+        private SphereCollider _collider;
+
+        private void Awake()
+        {
+            _collider = GetComponent<SphereCollider>();
+        }
 
         private void OnEnable()
         {
@@ -44,7 +50,6 @@ namespace _3._Scripts.Player
 
         public void Initialize(LawnmowerData data)
         {
-
             InitializeRadius(data);
             InitializeColor(data);
             InitializeEffect(data);
@@ -58,6 +63,7 @@ namespace _3._Scripts.Player
         private void InitializeRadius(LawnmowerData data)
         {
             grassSphereDetector.SetRadius(data.Radius);
+            _collider.radius = data.Radius + 0.5f;
         }
 
         private void InitializeEffect(LawnmowerData data)
@@ -74,12 +80,15 @@ namespace _3._Scripts.Player
         }
 
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            if (!other.TryGetComponent(out GrassField field)) return;
+            if (!other.TryGetComponent(out Grass grass)) return;
 
-            Player.instance.Movement.SetSpeed(field.Data.Resistance);
-
+            if (grass.Shaved)
+                Player.instance.Movement.ResetSpeed();
+            else
+                Player.instance.Movement.SetSpeed(grass.Data.Resistance);
+            
         }
         
     }

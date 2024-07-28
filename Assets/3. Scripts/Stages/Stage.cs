@@ -27,7 +27,7 @@ namespace _3._Scripts.Stages
         public Transform SpawnPoint => spawnPoint;
         public float GiftBooster => config.GiftBooster;
         public int ID => config.ID;
-        public List<float> BaseRewardsCount => config.BaseRewardsCount;
+        public int MaxBoltCount => config.MaxBoltCount;
         public event Action<float> OnGrassShaved;
 
         public void Initialize()
@@ -43,7 +43,7 @@ namespace _3._Scripts.Stages
 
         public void SetupCurrentRewards()
         {
-            var baseRewards = StageController.Instance.CurrentStage.BaseRewardsCount;
+            var baseRewards = config.BaseRewardsCount;
             var currentLawnmower = Configuration.Instance.AllLawnmower
                 .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
             

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using _3._Scripts.Actions.Scriptable;
 using _3._Scripts.Currency.Enums;
 using _3._Scripts.Inputs;
@@ -23,7 +25,10 @@ namespace _3._Scripts.Actions
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
         [SerializeField] private Transform playerPoint;
         
+        [Tab("View")] [SerializeField]
+        private List<MeshRenderer> renderers = new();
 
+        
         [Tab("Settings")] [SerializeField] private CurrencyType currencyType;
         [SerializeField] private CurrencyCounterEffect effect;
         [Tab("Texts")] [SerializeField] private LocalizeStringEvent countText;
@@ -45,6 +50,11 @@ namespace _3._Scripts.Actions
 
             requiredText.SetVariable("value", WalletManager.ConvertToWallet((decimal) _requiredCount));
             countText.SetVariable("value", WalletManager.ConvertToWallet((decimal) _count));
+
+            foreach (var material in renderers.SelectMany(r => r.materials))
+            {
+                material.DOColor(config.Color, 0f);
+            }
         }
 
         private const float CooldownTime = .5f; // Cooldown time in seconds

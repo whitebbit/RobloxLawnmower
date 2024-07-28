@@ -7,6 +7,7 @@ using _3._Scripts.Sounds;
 using _3._Scripts.UI;
 using _3._Scripts.Wallet;
 using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VInspector;
@@ -45,7 +46,7 @@ namespace _3._Scripts.Player
         private void Start()
         {
             _input = InputHandler.Instance.Input;
-            ResetSpeed();
+            _currentSpeed = speed;
         }
 
         private void Update()
@@ -76,7 +77,7 @@ namespace _3._Scripts.Player
             var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity,
                 TurnSmoothTime);
             var moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-            var currentSpeed = Mathf.Clamp(this._currentSpeed, 0.1f, 15);
+            var currentSpeed = Mathf.Clamp(_currentSpeed, 0.1f, 15);
 
             transform.rotation = Quaternion.Euler(0, angle, 0);
             _characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
@@ -86,22 +87,36 @@ namespace _3._Scripts.Player
         public void SetSpeed(float resistance)
         {
             var playerStrength = WalletManager.FirstCurrency;
+            float targetSpeed;
 
             if (playerStrength < resistance)
             {
                 var resistanceFactor = playerStrength / resistance;
-                _currentSpeed = speed * resistanceFactor;
+                targetSpeed = speed * resistanceFactor;
             }
             else
             {
                 var strengthFactor = (playerStrength - resistance) / resistance;
-                _currentSpeed = speed + (speed * strengthFactor);
+                targetSpeed = speed + (speed * strengthFactor);
             }
 
-            _currentSpeed = Mathf.Clamp(_currentSpeed, 2.5f, 12.5f);
+            targetSpeed = Mathf.Clamp(targetSpeed, 0f, 12.5f);
+
+            _resetSpeedTween?.Pause();
+            _resetSpeedTween?.Kill();
+            _resetSpeedTween = null;
+            DOTween.To(() => _currentSpeed, x => _currentSpeed = x, targetSpeed, 0.25f);
         }
 
-        public void ResetSpeed() => _currentSpeed = speed;
+        private Tween _resetSpeedTween;
+
+        public void ResetSpeed()
+        {
+            if (_resetSpeedTween != null) return;
+
+            _resetSpeedTween = DOTween.To(() => _currentSpeed, x => _currentSpeed = x, speed, .25f)
+                .SetDelay(.25f);
+        }
 
         private void Look()
         {
@@ -119,7 +134,7 @@ namespace _3._Scripts.Player
         private void Jump()
         {
             if (JumpBlocked) return;
-            
+
             if (_input.GetJump() && IsGrounded())
             {
                 _velocity.y = Mathf.Sqrt(jumpHeight * -2 * Gravity);

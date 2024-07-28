@@ -17,6 +17,7 @@ namespace _3._Scripts.Stages
         private Collider _collider;
         public bool Shaved { get; private set; }
         private Vector3 _startScale;
+        public GrassData Data { get; private set; }
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace _3._Scripts.Stages
 
         public void Initialize(GrassData data)
         {
+            Data = data;
             foreach (var r in renderers)
             {
                 r.material.DOColor(data.GrassColor, 0);
@@ -48,9 +50,11 @@ namespace _3._Scripts.Stages
 
         public void CutDown()
         {
+            if (Shaved) return;
             particle.Play();
-            model.DOScale(Vector3.zero, 0.35f).SetEase(Ease.InOutBack).OnComplete(() => model.gameObject.SetActive(false));
-            _collider.enabled = false;
+            model.DOScale(Vector3.zero, 0.35f).SetEase(Ease.InOutBack)
+                .OnComplete(() => model.gameObject.SetActive(false));
+            //_collider.enabled = false;
             Shaved = true;
 
             StageController.Instance.CurrentStage.OnGrassCutDown();
