@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 1
   teleportPrice: 250000
   giftBooster: 25
+  baseRewardsCount: []
   petUnlocker: {fileID: 11400000, guid: 3f30898049504ef4cb3c382b94d44c50, type: 2}
   trainings:
   - {fileID: 11400000, guid: 31f46ba16e2091e47af57881da4fac46, type: 2}
@@ -23,4 +24,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a49788ffd8eaa4b4abc8d0a357c47419, type: 2}
   - {fileID: 11400000, guid: 6108717d8f506f7469e682c930dafb9a, type: 2}
   grassData:
-  - {fileID: 11400000, guid: e418e068b57c6f54c8d03c3493ca180b, type: 2}
+  - {fileID: 11400000, guid: d95d9201528e2474b8ab7b6fe7688ad0, type: 2}
+  - {fileID: 11400000, guid: 7eb828e9d7db0994cb6df7f02391105d, type: 2}
+  - {fileID: 11400000, guid: aa2d3b2c377e4f24a9ea68834d151cac, type: 2}
