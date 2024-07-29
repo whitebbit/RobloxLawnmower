@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldUnicorn 1
   m_EditorClassIdentifier: 
   id: gold_unicorn_pet
-  dropPercent: 3
+  dropPercent: 120
   rarity: 3
   prefab: {fileID: 5558371338247227444, guid: d740425c66232194d8393faa1b5ffaf9, type: 3}
   boosterType: 0
