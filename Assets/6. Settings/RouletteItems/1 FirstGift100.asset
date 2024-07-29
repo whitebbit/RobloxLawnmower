@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c76165b13c80403aacca0bb50c9a4d28, type: 3}
-  m_Name: FirstGift25000
+  m_Name: 1 FirstGift100
   m_EditorClassIdentifier: 
   type: 0
-  count: 25000
+  count: 75

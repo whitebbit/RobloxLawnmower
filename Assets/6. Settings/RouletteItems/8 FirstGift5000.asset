@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65432d449a2647b5b5f6c56194c15f5d, type: 3}
-  m_Name: PetGift 1
+  m_Script: {fileID: 11500000, guid: c76165b13c80403aacca0bb50c9a4d28, type: 3}
+  m_Name: 8 FirstGift5000
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 4dd9062a35d5b9a438d28114ca990375, type: 2}
+  type: 0
+  count: 5000
