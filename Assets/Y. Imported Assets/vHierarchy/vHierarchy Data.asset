@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 9fc0d4010bbf28b4594072e72b8655ab
+    - 64716ed8863cea34d84b742062785264
     values:
     - goDatas_byGlobalId:
         keys:
@@ -31,3 +32,9 @@ MonoBehaviour:
           iconNameOrGuid: Terrain Icon
         - colorIndex: 9
           iconNameOrGuid: ReflectionProbe Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-1-64716ed8863cea34d84b742062785264-1813991821445923534-0
+        values:
+        - colorIndex: 9
+          iconNameOrGuid: StandaloneInputModule Icon

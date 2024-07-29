@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Actions;
+using _3._Scripts.Boosters;
 using _3._Scripts.Bots;
 using _3._Scripts.Config;
 using _3._Scripts.Pets;
@@ -48,7 +49,8 @@ namespace _3._Scripts.Stages
                 .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
 
             var lawnmowerCupsBooster = currentLawnmower == null ? 1 : currentLawnmower.CupsBooster;
-            var currentRewards = from baseReward in baseRewards select baseReward * lawnmowerCupsBooster;
+            var booster = BoostersHandler.Instance.GetBoosterState("reward_booster") ? 2 : 1;
+            var currentRewards = from baseReward in baseRewards select baseReward * lawnmowerCupsBooster * booster;
             UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
         }
 

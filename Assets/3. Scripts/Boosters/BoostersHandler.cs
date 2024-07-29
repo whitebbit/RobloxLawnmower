@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Singleton;
+using _3._Scripts.Stages;
 using GBGamesPlugin;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +14,7 @@ namespace _3._Scripts.Boosters
     {
         [Tab("Buttons")]
         [SerializeField] private BoosterButton autoClickerButton;
-        [SerializeField] private BoosterButton healthBooster;
         [SerializeField] private BoosterButton rewardBooster;
-        [SerializeField] private BoosterButton slapBooster;
-        [Tab("View")]
-        [SerializeField] private Transform healthBoosterView;
-        [SerializeField] private Transform slapBoosterView;
-        
         [Tab("Debug")]
         [SerializeField] private List<BoosterState> boosters = new();
         
@@ -49,9 +44,6 @@ namespace _3._Scripts.Boosters
         
         private void Start()
         {
-            //healthBoosterView.gameObject.SetActive(false);
-            //slapBoosterView.gameObject.SetActive(false);
-            
             InitializeButtons();
         }
 
@@ -60,29 +52,15 @@ namespace _3._Scripts.Boosters
             autoClickerButton.onActivateBooster += () => ChangeBoosterState("auto_clicker", true);
             autoClickerButton.onDeactivateBooster += () => ChangeBoosterState("auto_clicker", false);
 
-            healthBooster.onActivateBooster += () =>
+            rewardBooster.onActivateBooster += () =>
             {
-                healthBoosterView.gameObject.SetActive(true);
-                ChangeBoosterState("health_booster", true);
+                ChangeBoosterState("reward_booster", true);
+                StageController.Instance.CurrentStage.SetupCurrentRewards();
             };
-            healthBooster.onDeactivateBooster += () =>
+            rewardBooster.onDeactivateBooster += () =>
             {
-                healthBoosterView.gameObject.SetActive(false);
-                ChangeBoosterState("health_booster", false);
-            };
-
-            rewardBooster.onActivateBooster += () => ChangeBoosterState("reward_booster", true);
-            rewardBooster.onDeactivateBooster += () => ChangeBoosterState("reward_booster", false);
-
-            slapBooster.onActivateBooster += () =>
-            {
-                slapBoosterView.gameObject.SetActive(true);
-                ChangeBoosterState("slap_booster", true);
-            };
-            slapBooster.onDeactivateBooster += () =>
-            {
-                slapBoosterView.gameObject.SetActive(false);
-                ChangeBoosterState("slap_booster", false);
+                ChangeBoosterState("reward_booster", false);
+                StageController.Instance.CurrentStage.SetupCurrentRewards();
             };
         }
     }
