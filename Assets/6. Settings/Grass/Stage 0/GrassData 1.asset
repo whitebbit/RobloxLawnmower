@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassMaterial: {fileID: 2100000, guid: 9fdcbe4e1cf7de04d820719d233f82c8, type: 2}
   grassParticleColor: {r: 1, g: 0.48973858, b: 0.17254901, a: 1}
-  resistance: 500
+  resistance: 400
