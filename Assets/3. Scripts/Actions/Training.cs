@@ -58,7 +58,7 @@ namespace _3._Scripts.Actions
             }
         }
 
-        private const float CooldownTime = .5f; // Cooldown time in seconds
+        private const float CooldownTime = .75f; // Cooldown time in seconds
         private float _nextClickTime;
 
         private void Update()
