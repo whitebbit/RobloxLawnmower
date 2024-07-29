@@ -9,25 +9,20 @@ namespace _3._Scripts.Pets.Scriptables
     public class PetData : ScriptableObject
     {
         [SerializeField] private string id;
-        [Tab("Main")]
-        [SerializeField] private float dropPercent;
+        [Tab("Main")] [SerializeField] private float dropPercent;
         [SerializeField] private Rarity rarity;
         [SerializeField] private Pet prefab;
-        [Tab("Booster")] 
-        [SerializeField] private CurrencyType boosterType;
-        [Space]
-        [SerializeField] private float minBooster;
+        [Tab("Booster")] [SerializeField] private CurrencyType boosterType;
+        [Space] [SerializeField] private float minBooster;
         [SerializeField] private float maxBooster;
-        [Tab("UI")] 
-        [SerializeField] private Sprite icon;
+        [Tab("UI")] [SerializeField] private Sprite icon;
 
         public Sprite Icon => icon;
         public Rarity Rarity => rarity;
         public Pet Prefab => prefab;
         public CurrencyType BoosterType => boosterType;
-        public int RandomBooster => Random.Range(minBooster, maxBooster);
+        public float RandomBooster => Mathf.Round(Random.Range(minBooster, maxBooster) * 10f) / 10f;
         public float DropPercent => dropPercent;
         public string ID => id;
-        
     }
 }
