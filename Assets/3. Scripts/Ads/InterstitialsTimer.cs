@@ -21,9 +21,7 @@ namespace _3._Scripts.Ads
         {
             if (secondsPanelObject)
                 secondsPanelObject.SetActive(false);
-
-            if (!Configuration.Instance.InterByTime) return;
-
+            
             StartCoroutine(CheckTimerAd());
         }
 
@@ -56,7 +54,6 @@ namespace _3._Scripts.Ads
             {
                 while (_objSecCounter > 0)
                 {
-                    Debug.Log(_objSecCounter);
                     localizedText.SetVariable("value", _objSecCounter);
                     _objSecCounter--;
                     yield return new WaitForSeconds(1.0f);

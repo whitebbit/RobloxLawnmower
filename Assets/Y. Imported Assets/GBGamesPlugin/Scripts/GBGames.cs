@@ -1,5 +1,6 @@
 ﻿#if UNITY_WEBGL
 using System.Collections;
+using System.Collections.Generic;
 using InstantGamesBridge;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -93,7 +94,24 @@ namespace GBGamesPlugin
 
         private void RemoteConfig()
         {
-            LoadRemoteConfig();
+            var options = new Dictionary<string, object>();
+            var clientFeatures = new object[]
+            {
+                new Dictionary<string, object>
+                {
+                    {"name", "useExtraButton"},
+                    {"value", "false"}
+                },
+                new Dictionary<string, object>
+                {
+                    {"name", "interByTime"},
+                    {"value", "false"}
+                }
+            };
+
+            options.Add("clientFeatures", clientFeatures);
+
+            LoadRemoteConfig(options);
         }
         
     }
