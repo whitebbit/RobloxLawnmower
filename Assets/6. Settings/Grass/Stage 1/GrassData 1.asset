@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5207a8cd19d0430889e1980920670ae5, type: 3}
   m_Name: GrassData 1
   m_EditorClassIdentifier: 
-  grassColor: {r: 1, g: 1, b: 0.5686275, a: 1}
-  grassParticleColor: {r: 1, g: 1, b: 0.48235297, a: 1}
-  resistance: 500
+  grassMaterial: {fileID: 2100000, guid: e32977a7a30820f4782bd163637035c3, type: 2}
+  grassParticleColor: {r: 0.9803922, g: 0.90196085, b: 0.0627451, a: 1}
+  resistance: 200000

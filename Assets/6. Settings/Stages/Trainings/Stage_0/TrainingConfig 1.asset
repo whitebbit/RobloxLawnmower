@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 2
   requiredCount: 245
-  color: {r: 1, g: 0.9479667, b: 0, a: 1}
+  color: {r: 1, g: 0.6901961, b: 0, a: 1}

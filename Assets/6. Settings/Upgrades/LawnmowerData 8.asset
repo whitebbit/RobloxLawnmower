@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LawnmowerData 8
   m_EditorClassIdentifier: 
   level: 8
-  radius: 1
-  boltsToUnlock: 10
-  cupsBooster: 2
+  radius: 1.4
+  boltsToUnlock: 360
+  cupsBooster: 19
   color: {r: 0, g: 0, b: 0, a: 1}
   effectPrefab: {fileID: 455184, guid: 29b0b627c85f5e94b83fbe9f44272436, type: 3}
