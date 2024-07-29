@@ -16,8 +16,8 @@ namespace _3._Scripts.Pets.Scriptables
         [Tab("Booster")] 
         [SerializeField] private CurrencyType boosterType;
         [Space]
-        [SerializeField] private int minBooster;
-        [SerializeField] private int maxBooster;
+        [SerializeField] private float minBooster;
+        [SerializeField] private float maxBooster;
         [Tab("UI")] 
         [SerializeField] private Sprite icon;
 
