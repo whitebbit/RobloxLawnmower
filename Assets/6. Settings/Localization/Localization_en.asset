@@ -177,11 +177,11 @@ MonoBehaviour:
       m_Items:
       - rid: 3203987063427825692
   - m_Id: 15102772382932992
-    m_Localized: Fight and earn cups
+    m_Localized: Mow the grass and get cups
     m_Metadata:
       m_Items: []
   - m_Id: 15103361829445632
-    m_Localized: Train and gain strength
+    m_Localized: Train and get the power of running
     m_Metadata:
       m_Items: []
   - m_Id: 15111359045967872

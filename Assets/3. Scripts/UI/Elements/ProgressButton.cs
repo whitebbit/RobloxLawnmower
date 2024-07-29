@@ -52,13 +52,14 @@ namespace _3._Scripts.UI.Elements
             {
                 if (_currentTween != null) return;
                 
-                _currentTween = transform.DOScale(1.1f, 0.4f)
+                _currentTween = transform.DOScale(1.2f, 0.4f)
                     .SetLoops(-1, LoopType.Yoyo)
                     .SetEase(Ease.InOutQuad);
             }
             else
             {
                 _currentTween?.Kill();
+                _currentTween = null;
                 transform.DOScale(1, 0.1f);
             }
         }

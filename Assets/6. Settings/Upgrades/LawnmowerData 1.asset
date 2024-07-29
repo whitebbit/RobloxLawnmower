@@ -16,5 +16,5 @@ MonoBehaviour:
   radius: 1
   boltsToUnlock: 10
   cupsBooster: 2
-  color: {r: 0.53151894, g: 0, b: 1, a: 1}
+  color: {r: 0.9254902, g: 0.52847314, b: 0.18039215, a: 1}
   effectPrefab: {fileID: 0}

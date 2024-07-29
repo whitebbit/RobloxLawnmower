@@ -28,6 +28,7 @@ namespace _3._Scripts.Stages
         public void Initialize(GrassData data)
         {
             Data = data;
+
             foreach (var r in renderers)
             {
                 r.material = data.GrassMaterial;

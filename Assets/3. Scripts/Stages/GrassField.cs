@@ -27,6 +27,7 @@ namespace _3._Scripts.Stages
         private readonly List<Grass> _grasses = new();
         private List<Bolt> _bolts = new();
         private float _resistance;
+
         private void OnValidate()
         {
             GetComponent<BoxCollider>().size = new Vector3(fieldSize.x, 1, fieldSize.y);
@@ -55,6 +56,7 @@ namespace _3._Scripts.Stages
             {
                 grass.Respawn();
             }
+
             DestroyBolts();
         }
 
@@ -64,6 +66,7 @@ namespace _3._Scripts.Stages
             {
                 Destroy(grass.gameObject);
             }
+
             _grasses.Clear();
         }
 
@@ -104,7 +107,7 @@ namespace _3._Scripts.Stages
                 var time = UnityEngine.Random.Range(minTime, maxTime);
                 yield return new WaitForSeconds(time);
                 var rand = UnityEngine.Random.Range(0, 2);
-                if (rand > 0 && WalletManager.FirstCurrency >= _resistance * 0.75f)
+                if (rand > 0 && WalletManager.FirstCurrency >= _resistance * 0.75f && _bolts.Count < 2)
                     SpawnBolt();
             }
         }
@@ -116,7 +119,7 @@ namespace _3._Scripts.Stages
             var spawnPosition = new Vector3(xPosition, 1, yPosition);
 
             var bolt = Instantiate(boltPrefab, transform);
-            
+
             bolt.transform.localPosition = spawnPosition;
             bolt.Initialize(GetRandomEvenNumber(2, StageController.Instance.CurrentStage.MaxBoltCount));
             _bolts.Add(bolt);
@@ -128,18 +131,19 @@ namespace _3._Scripts.Stages
             {
                 Destroy(bolt.gameObject);
             }
-            
+
             _bolts.Clear();
         }
-        
+
         private int GetRandomEvenNumber(int min, int max)
         {
             var randomValue = UnityEngine.Random.Range(min, max);
-    
+
             if (randomValue % 2 != 0)
             {
                 randomValue++;
             }
+
             if (randomValue > max)
             {
                 randomValue -= 2;
@@ -147,7 +151,7 @@ namespace _3._Scripts.Stages
 
             return randomValue;
         }
-        
+
         private void OnDrawGizmos()
         {
             var color = Color.red;

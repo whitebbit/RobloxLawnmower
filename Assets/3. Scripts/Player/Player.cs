@@ -10,6 +10,7 @@ using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Saves;
 using _3._Scripts.Stages;
 using _3._Scripts.Trails;
+using _3._Scripts.Tutorial;
 using _3._Scripts.UI;
 using _3._Scripts.UI.Widgets;
 using _3._Scripts.Upgrades;
@@ -101,6 +102,11 @@ namespace _3._Scripts.Player
             if (state)
             {
                 StageController.Instance.CurrentStage.SetupCurrentRewards();
+                if (!GBGames.saves.tutorialComplete)
+                {
+                    TutorialSystem.StepComplete("mowing");
+                    GBGames.saves.tutorialComplete = true;
+                }
             }
 
             UIManager.Instance.GetWidget<GrassProgressWidget>().Enabled = state;

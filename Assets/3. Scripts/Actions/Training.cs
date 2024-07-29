@@ -6,6 +6,7 @@ using _3._Scripts.Currency.Enums;
 using _3._Scripts.Inputs;
 using _3._Scripts.Interactive.Interfaces;
 using _3._Scripts.Localization;
+using _3._Scripts.Tutorial;
 using _3._Scripts.UI;
 using _3._Scripts.UI.Effects;
 using _3._Scripts.UI.Panels;
@@ -96,6 +97,9 @@ namespace _3._Scripts.Actions
             InputHandler.Instance.SetState(false);
             CameraController.Instance.SwapTo(virtualCamera);
             
+            if (!GBGames.saves.tutorialComplete)
+                TutorialSystem.StepComplete("training");
+            
             panel.Enabled = true;
             panel.AddAction(StopInteract);
             
@@ -122,7 +126,9 @@ namespace _3._Scripts.Actions
                 InputHandler.Instance.SetState(true);
                 CameraController.Instance.SwapToMain();
                 UIManager.Instance.GetPanel<TrainingPanel>().Enabled = false;
-                
+                if (!GBGames.saves.tutorialComplete)
+                    TutorialSystem.StepStart("mowing");
+
                 _canTraining = false;
             }
             

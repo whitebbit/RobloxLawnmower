@@ -27,5 +27,6 @@ namespace GBGamesPlugin
         public int stageID;
         public int worldID;
         public bool sound = true;
+        public bool tutorialComplete;
     }
 }

@@ -95,6 +95,7 @@ namespace _3._Scripts.Bots
         private void Start()
         {
             levelText.SetVariable("value", Random.Range(100, 500).ToString());
+            SetMowingState(false);
             StartCoroutine(ChangeState());
         }
 

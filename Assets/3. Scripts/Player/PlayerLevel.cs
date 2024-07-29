@@ -24,7 +24,7 @@ namespace _3._Scripts.Player
             OnChange(WalletManager.FirstCurrency, WalletManager.FirstCurrency);
             WalletManager.OnFirstCurrencyChange += OnChange;
         }
-        
+
         private void OnDisable()
         {
             WalletManager.OnFirstCurrencyChange -= OnChange;
@@ -38,19 +38,14 @@ namespace _3._Scripts.Player
                 Leaderboard.Leaderboard.Instance.UpdateScore(0);
                 return;
             }
-            
-            var normalizedPower = Math.Log10(newValue);
-            //var swords = Configuration.Instance.AllUpgrades.OrderBy(obj => obj.Booster).ToList();
-            var characters = Configuration.Instance.AllCharacters.OrderBy(obj => obj.Booster).ToList();
 
-            /*var currentSword =
-                Configuration.Instance.AllUpgrades.FirstOrDefault(s => GBGames.saves.upgradeSaves.IsCurrent(s.ID));*/
-            var currentCharacter =
-                Configuration.Instance.AllCharacters.FirstOrDefault(s => GBGames.saves.characterSaves.IsCurrent(s.ID));
-            
-            double totalBooster = 1 /*+ swords.IndexOf(currentSword)*/ + characters.IndexOf(currentCharacter);
-            
-            var playerLevel = (int)(normalizedPower * totalBooster);
+            var normalizedPower = Math.Log10(newValue);
+            var characters = Configuration.Instance.AllCharacters.OrderBy(obj => obj.Booster).ToList();
+            var currentCharacter = Configuration.Instance.AllCharacters.FirstOrDefault(s => GBGames.saves.characterSaves.IsCurrent(s.ID));
+
+            double totalBooster = 1 + GBGames.saves.lawnmowerLevel  + characters.IndexOf(currentCharacter);
+
+            var playerLevel = (int) (normalizedPower * totalBooster);
             _text.SetVariable("value", playerLevel.ToString());
 
             Leaderboard.Leaderboard.Instance.UpdateScore(playerLevel);

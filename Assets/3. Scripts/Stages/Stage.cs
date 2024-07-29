@@ -46,12 +46,12 @@ namespace _3._Scripts.Stages
             var baseRewards = config.BaseRewardsCount;
             var currentLawnmower = Configuration.Instance.AllLawnmower
                 .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
-            
+
             var lawnmowerCupsBooster = currentLawnmower == null ? 1 : currentLawnmower.CupsBooster;
             var currentRewards = from baseReward in baseRewards select baseReward * lawnmowerCupsBooster;
             UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
         }
-        
+
         public void OnGrassCutDown()
         {
             var shavedCount = _grasses.Count(g => g.Shaved);
@@ -117,6 +117,12 @@ namespace _3._Scripts.Stages
 
         private void InitializeBots()
         {
+            foreach (var obj in bots.Select(bot => Instantiate(bot, transform)))
+            {
+                obj.transform.position += Vector3.left * UnityEngine.Random.Range(-7.5f, 7.5f) +
+                                          Vector3.forward * UnityEngine.Random.Range(-7.5f, 7.5f);
+                _currentBots.Add(obj);
+            }
         }
 
         private void OnDisable()
