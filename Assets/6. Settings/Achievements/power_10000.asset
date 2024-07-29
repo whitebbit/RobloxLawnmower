@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: power_10000
   goal: 2500
-  gift: {fileID: 11400000, guid: 655d05ca8f9f8d5408023ef53b2beda1, type: 2}
+  gift: {fileID: 11400000, guid: 09b2c301177ff8a48a61cf0757d237f9, type: 2}
   titleID: power_10000
   icon: {fileID: -1901006561, guid: 92d96a066c6e10342931ced3be205f34, type: 3}
