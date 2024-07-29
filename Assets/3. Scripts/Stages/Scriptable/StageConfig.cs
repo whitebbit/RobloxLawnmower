@@ -13,8 +13,8 @@ namespace _3._Scripts.Stages.Scriptable
         [SerializeField] private float giftBooster;
         [SerializeField, Min(0)] private float teleportPrice;
         [Header("Configs")] 
-        [SerializeField] private PetUnlockerConfig petUnlocker;
         [SerializeField] private List<float> baseRewardsCount;
+        [SerializeField] private List<PetUnlockerConfig> petUnlockers = new();
         [SerializeField] private List<TrainingConfig> trainings = new();
         [SerializeField] private List<GrassData> grassData = new();
 
@@ -23,7 +23,7 @@ namespace _3._Scripts.Stages.Scriptable
         public List<GrassData> GrassData => grassData;
         public List<TrainingConfig> Trainings => trainings;
         public float GiftBooster => giftBooster;
-        public PetUnlockerConfig PetUnlocker => petUnlocker;
+        public List<PetUnlockerConfig> PetUnlockers => petUnlockers;
         public int ID => id;
 
         public float TeleportPrice => teleportPrice;

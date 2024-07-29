@@ -23,15 +23,19 @@ namespace _3._Scripts.Player
             _collider = GetComponent<SphereCollider>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
             grassSphereDetector.OnFound += GrassSphereDetectorOnFound;
+        }
+
+        private void OnEnable()
+        {
             grassSphereDetector.DetectorState(true);
         }
 
         private void OnDisable()
         {
-            grassSphereDetector.OnFound -= GrassSphereDetectorOnFound;
+            // grassSphereDetector.OnFound -= GrassSphereDetectorOnFound;
             grassSphereDetector.DetectorState(false);
         }
 
@@ -44,6 +48,7 @@ namespace _3._Scripts.Player
 
         private void GrassSphereDetectorOnFound(Grass obj)
         {
+            if (Vector3.Distance(target.position, transform.position) > positionOffset.magnitude) return;
             if (obj == null) return;
             obj.CutDown();
         }
@@ -88,8 +93,6 @@ namespace _3._Scripts.Player
                 Player.instance.Movement.ResetSpeed();
             else
                 Player.instance.Movement.SetSpeed(grass.Data.Resistance);
-            
         }
-        
     }
 }

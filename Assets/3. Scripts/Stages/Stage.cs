@@ -108,8 +108,14 @@ namespace _3._Scripts.Stages
 
         private void InitializePetUnlocker()
         {
-            var obj = GetComponentInChildren<PetUnlocker>();
-            obj.Initialize(config.PetUnlocker);
+            var obj = GetComponentsInChildren<PetUnlocker>();
+            var index = 0;
+            foreach (var petUnlocker in obj)
+            {
+                petUnlocker.Initialize(config.PetUnlockers[index]);
+                index++;
+                if (index >= config.PetUnlockers.Count) break;
+            }
         }
 
         private void OnValidate()
