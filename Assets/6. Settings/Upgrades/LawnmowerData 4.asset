@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LawnmowerData 4
   m_EditorClassIdentifier: 
   level: 4
-  radius: 1.4
+  radius: 1.2
   boltsToUnlock: 65
   cupsBooster: 7
   color: {r: 0, g: 0.7088356, b: 1, a: 1}
