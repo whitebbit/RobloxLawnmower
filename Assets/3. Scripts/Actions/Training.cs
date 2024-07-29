@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Actions.Scriptable;
+using _3._Scripts.Boosters;
 using _3._Scripts.Currency.Enums;
 using _3._Scripts.Inputs;
 using _3._Scripts.Interactive.Interfaces;
@@ -25,11 +26,10 @@ namespace _3._Scripts.Actions
         [Tab("Components")] [SerializeField] private Transform tutorial;
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
         [SerializeField] private Transform playerPoint;
-        
-        [Tab("View")] [SerializeField]
-        private List<MeshRenderer> renderers = new();
 
-        
+        [Tab("View")] [SerializeField] private List<MeshRenderer> renderers = new();
+
+
         [Tab("Settings")] [SerializeField] private CurrencyType currencyType;
         [SerializeField] private CurrencyCounterEffect effect;
         [Tab("Texts")] [SerializeField] private LocalizeStringEvent countText;
@@ -60,11 +60,13 @@ namespace _3._Scripts.Actions
 
         private const float CooldownTime = .5f; // Cooldown time in seconds
         private float _nextClickTime;
+
         private void Update()
         {
             if (!_canTraining) return;
 
-            if (!Input.GetMouseButtonDown(0) || !(Time.time >= _nextClickTime)) return;
+            if (!Input.GetMouseButtonDown(0) && !BoostersHandler.Instance.GetBoosterState("auto_clicker") ||
+                !(Time.time >= _nextClickTime)) return;
             _nextClickTime = Time.time + CooldownTime;
             Action();
         }
@@ -73,11 +75,11 @@ namespace _3._Scripts.Actions
         {
             var training = Player.Player.instance.GetTrainingStrength(_count);
             var obj = CurrencyEffectPanel.Instance.SpawnEffect(effect, currencyType, training);
-            
+
             GBGames.saves.achievementSaves.Update("power_100", training);
             GBGames.saves.achievementSaves.Update("power_10000", training);
             GBGames.saves.achievementSaves.Update("power_1000000", training);
-            
+
             obj.Initialize(currencyType, training);
         }
 
@@ -93,16 +95,16 @@ namespace _3._Scripts.Actions
 
             var panel = UIManager.Instance.GetPanel<TrainingPanel>();
             var player = Player.Player.instance;
-           
+
             InputHandler.Instance.SetState(false);
             CameraController.Instance.SwapTo(virtualCamera);
-            
+
             if (!GBGames.saves.tutorialComplete)
                 TutorialSystem.StepComplete("training");
-            
+
             panel.Enabled = true;
             panel.AddAction(StopInteract);
-            
+
             player.Movement.Blocked = true;
             player.Teleport(playerPoint.position);
             player.transform.forward = transform.forward;
@@ -118,7 +120,7 @@ namespace _3._Scripts.Actions
             if (_canTraining)
             {
                 var player = Player.Player.instance;
-                
+
                 player.PlayerAnimator.SetBool("Training", false);
                 player.Movement.Blocked = false;
                 player.PetsHandler.SetState(true);
@@ -131,7 +133,7 @@ namespace _3._Scripts.Actions
 
                 _canTraining = false;
             }
-            
+
             tutorial.gameObject.SetActive(false);
         }
     }
