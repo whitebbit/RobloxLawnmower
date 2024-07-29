@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b500adbf8784a3b82f35eb8c403d4b0, type: 3}
-  m_Name: PetUnlockerConfig 2
+  m_Name: PetUnlockerConfig
   m_EditorClassIdentifier: 
   pets:
-  - {fileID: 11400000, guid: 7239a847492806d4981a490d7f3b7b85, type: 2}
-  - {fileID: 11400000, guid: 6e212ee2b2ca0ea4197b5b184cf788a2, type: 2}
-  - {fileID: 11400000, guid: fa0e098015d68ca4ab8cefec48e43aa6, type: 2}
-  price: 32
+  - {fileID: 11400000, guid: 1a18b4ff12855c040928945413041983, type: 2}
+  - {fileID: 11400000, guid: 282c86cca85528e4cb14f9dfb95486ac, type: 2}
+  - {fileID: 11400000, guid: 5f1b4967984837c48a247a0c10cb3a2a, type: 2}
+  price: 2500

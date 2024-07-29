@@ -16,11 +16,14 @@ MonoBehaviour:
   maxBoltCount: 16
   giftBooster: 100
   teleportPrice: 750000
-  petUnlocker: {fileID: 11400000, guid: f044153c43e56e74db7d414eee8b0c6a, type: 2}
   baseRewardsCount:
   - 1000
   - 2400
   - 10000
+  petUnlockers:
+  - {fileID: 11400000, guid: 226c8fbfe0df5374ba71792411030316, type: 2}
+  - {fileID: 11400000, guid: ad8b85dae605f7644a93324abac54ffb, type: 2}
+  - {fileID: 11400000, guid: dd03463bcf2e2f34a84b521ad250198a, type: 2}
   trainings:
   - {fileID: 11400000, guid: aea867adfb5041046b627317a4908733, type: 2}
   - {fileID: 11400000, guid: a287e5e31467265468f7c6180edda962, type: 2}
