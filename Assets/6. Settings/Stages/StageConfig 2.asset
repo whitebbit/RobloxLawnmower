@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: StageConfig 2
   m_EditorClassIdentifier: 
   id: 2
-  teleportPrice: 1500000
+  maxBoltCount: 0
   giftBooster: 100
-  baseRewardsCount: []
+  teleportPrice: 1500000
   petUnlocker: {fileID: 11400000, guid: f044153c43e56e74db7d414eee8b0c6a, type: 2}
+  baseRewardsCount: []
   trainings:
   - {fileID: 11400000, guid: aea867adfb5041046b627317a4908733, type: 2}
   - {fileID: 11400000, guid: a287e5e31467265468f7c6180edda962, type: 2}
   - {fileID: 11400000, guid: 940cd9d3bbf37454da83468563570558, type: 2}
-  - {fileID: 11400000, guid: 189948a0d49d17644bf5cee6a22ab40f, type: 2}
-  - {fileID: 11400000, guid: 1707bf1cfb533654b91c899334aa9d8c, type: 2}
   grassData:
   - {fileID: 11400000, guid: ce7c71608fdec9d4f804593d41232701, type: 2}
   - {fileID: 11400000, guid: 183dc32583a8deb42bcec5c87afd8d27, type: 2}
