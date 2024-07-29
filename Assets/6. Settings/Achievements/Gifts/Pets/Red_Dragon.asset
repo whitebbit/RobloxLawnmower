@@ -17,6 +17,6 @@ MonoBehaviour:
   rarity: 3
   prefab: {fileID: 1383603029575664354, guid: 66ec4953af3540c4cbe939485e780a35, type: 3}
   boosterType: 0
-  minBooster: 280
-  maxBooster: 350
+  minBooster: 100
+  maxBooster: 100
   icon: {fileID: 21300000, guid: 5d4d127403e42964c987feec16bd1cf7, type: 3}
