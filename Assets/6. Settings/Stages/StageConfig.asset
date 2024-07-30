@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   maxBoltCount: 4
   giftBooster: 1
-  teleportPrice: 85
+  teleportPrice: 200
   baseRewardsCount:
   - 1
   - 4
