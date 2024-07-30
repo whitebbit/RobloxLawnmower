@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dragon 1
   m_EditorClassIdentifier: 
   id: dragon_pet
-  dropPercent: 90
+  dropPercent: 12
   rarity: 2
   prefab: {fileID: -9001622260480800953, guid: 3b5f6a06c424e704f873fbee3144e697, type: 3}
   boosterType: 0
-  minBooster: 176
-  maxBooster: 200
+  minBooster: 90
+  maxBooster: 90
   icon: {fileID: 21300000, guid: c460c53292293c941861fb6d82c95480, type: 3}
