@@ -4,7 +4,8 @@ using VInspector;
 namespace _3._Scripts.Player.Scriptables
 {
     [CreateAssetMenu(fileName = "LawnmowerData", menuName = "ScriptableObjects/LawnmowerData", order = 1)]
-    public class LawnmowerData : ScriptableObject
+    public class 
+        LawnmowerData : ScriptableObject
     {
         [SerializeField] private int level;
         

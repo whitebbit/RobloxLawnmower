@@ -59,8 +59,8 @@ namespace _3._Scripts.Currency
             progressSlider.gameObject.SetActive(!canUnlock);
             unlockButton.gameObject.SetActive(canUnlock);
 
-            levelText.SetVariable("level_1", currentLawnmower.Level);
-            levelText.SetVariable("level_2", nextLawnmower.Level);
+            levelText.SetVariable("level_1", currentLawnmower.Level.ToString());
+            levelText.SetVariable("level_2", nextLawnmower.Level.ToString());
             upgradeText.text = $"{currentLawnmower.CupsBooster}X > <color=green>{nextLawnmower.CupsBooster}X</color>";
             countToUnlock.text = $"<sprite index=3>{currentCurrency}/{nextLawnmower.BoltsToUnlock}";
             progressSlider.value = currentCurrency / nextLawnmower.BoltsToUnlock;
