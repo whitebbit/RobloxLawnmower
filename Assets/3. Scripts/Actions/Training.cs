@@ -100,17 +100,22 @@ namespace _3._Scripts.Actions
             CameraController.Instance.SwapTo(virtualCamera);
 
             if (!GBGames.saves.tutorialComplete)
+            {
                 TutorialSystem.StepComplete("training");
+                TutorialSystem.StepStart("training_start");
+            }
 
             panel.Enabled = true;
             panel.AddAction(StopInteract);
 
             player.Movement.Blocked = true;
             player.Teleport(playerPoint.position);
+            player.SetLevelState(false);
             player.transform.forward = transform.forward;
             player.PlayerAnimator.SetTrigger("StartTraining");
             player.PlayerAnimator.SetBool("Training", true);
             player.PetsHandler.SetState(false);
+            
             _canTraining = true;
             tutorial.gameObject.SetActive(false);
         }
@@ -124,12 +129,16 @@ namespace _3._Scripts.Actions
                 player.PlayerAnimator.SetBool("Training", false);
                 player.Movement.Blocked = false;
                 player.PetsHandler.SetState(true);
-
+                player.SetLevelState(true);
+                
                 InputHandler.Instance.SetState(true);
                 CameraController.Instance.SwapToMain();
                 UIManager.Instance.GetPanel<TrainingPanel>().Enabled = false;
                 if (!GBGames.saves.tutorialComplete)
+                {
+                    TutorialSystem.StepComplete("training_start");
                     TutorialSystem.StepStart("mowing");
+                }
 
                 _canTraining = false;
             }

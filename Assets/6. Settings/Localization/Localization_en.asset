@@ -298,6 +298,14 @@ MonoBehaviour:
     m_Localized: Unlock
     m_Metadata:
       m_Items: []
+  - m_Id: 27366473416712192
+    m_Localized: Get 20 strength and complete the workout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27369957817982976
+    m_Localized: Click on the star to get cups
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

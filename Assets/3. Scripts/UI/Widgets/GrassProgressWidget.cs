@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _3._Scripts.Currency.Enums;
 using _3._Scripts.Stages;
+using _3._Scripts.Tutorial;
 using _3._Scripts.UI.Effects;
 using _3._Scripts.UI.Elements;
 using _3._Scripts.UI.Interfaces;
@@ -21,6 +22,8 @@ namespace _3._Scripts.UI.Widgets
 
         [Tab("Components")] [SerializeField] private Slider progressBar;
         [SerializeField] private List<ProgressButton> buttons = new();
+        [SerializeField] private Transform tutorial;
+
         [Tab("Rewards")] [SerializeField] private CurrencyType rewardType;
         [SerializeField] private CurrencyCounterEffect effect;
 
@@ -47,6 +50,7 @@ namespace _3._Scripts.UI.Widgets
             }
 
             StageController.Instance.CurrentStage.OnGrassShaved += OnGrassShaved;
+            tutorial.gameObject.SetActive(false);
         }
 
         private void OnGrassShaved(float percent)
@@ -57,6 +61,12 @@ namespace _3._Scripts.UI.Widgets
             {
                 buttons[i].Interactable = percent >= 0.3 * (i + 1);
             }
+
+            if (!GBGames.saves.tutorialComplete && buttons[0].Interactable)
+            {
+                tutorial.gameObject.SetActive(true);
+            }
+            
         }
         
         private void GetReward(float reward)
@@ -67,8 +77,14 @@ namespace _3._Scripts.UI.Widgets
             GBGames.saves.achievementSaves.Update("cups_1", reward);
             GBGames.saves.achievementSaves.Update("cups_100", reward);
             GBGames.saves.achievementSaves.Update("cups_1000", reward);
-
+            
             StageController.Instance.CurrentStage.RespawnGrassFields();
+            
+            if (!GBGames.saves.tutorialComplete)
+            {
+                tutorial.gameObject.SetActive(false);
+                GBGames.saves.tutorialComplete = true;
+            }
         }
     }
 }

@@ -12,11 +12,14 @@ namespace _3._Scripts.Tutorial
         public static void StepComplete(string stepName)
         {
             TutorialStepComplete?.Invoke(stepName);
+            Debug.Log($"Step Complete {stepName}");
+
         }
 
         public  static void StepStart(string stepName)
         {
             TutorialStepStart?.Invoke(stepName);
+            Debug.Log($"Step Start {stepName}");
         }
         
     }

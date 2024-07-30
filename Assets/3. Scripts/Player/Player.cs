@@ -23,7 +23,8 @@ namespace _3._Scripts.Player
     public class Player : Fighter
     {
         [SerializeField] private Lawnmower lawnmower;
-
+        [SerializeField] private PlayerLevel level;
+        
         public PetsHandler PetsHandler { get; private set; }
         public CharacterHandler CharacterHandler { get; private set; }
         public UpgradeHandler UpgradeHandler { get; private set; }
@@ -67,6 +68,8 @@ namespace _3._Scripts.Player
             return PlayerAnimator;
         }
 
+        public void SetLevelState(bool state) => level.gameObject.SetActive(state); 
+        
         public float GetTrainingStrength(float strengthPerClick)
         {
             var pets = GBGames.saves.petsSave.selected.Sum(p => p.booster);
@@ -105,7 +108,6 @@ namespace _3._Scripts.Player
                 if (!GBGames.saves.tutorialComplete)
                 {
                     TutorialSystem.StepComplete("mowing");
-                    GBGames.saves.tutorialComplete = true;
                 }
             }
 

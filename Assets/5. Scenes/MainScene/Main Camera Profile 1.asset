@@ -61,7 +61,7 @@ MonoBehaviour:
     m_Value: {x: 0.9849239, y: 0.99452186, z: 1, w: 0.025125628}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.88856304, z: 0.8445653, w: 0.075376906}
+    m_Value: {x: 1, y: 0.96981686, z: 0.98613155, w: 0.075376906}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.587995, b: 0.25943398, a: 1}
+    m_Value: {r: 1, g: 0.8453878, b: 0.7216981, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0

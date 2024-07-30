@@ -672,7 +672,7 @@ namespace UnityStandardAssets.CinematicEffects
             return tex2D;
         }
 
-        // An analytical model of chromaticity of the standard illuminant, by Judd et al.
+        // An analytical view of chromaticity of the standard illuminant, by Judd et al.
         // http://en.wikipedia.org/wiki/Standard_illuminant#Illuminant_series_D
         // Slightly modifed to adjust it with the D65 white point (x=0.31271, y=0.32902).
         private float StandardIlluminantY(float x)

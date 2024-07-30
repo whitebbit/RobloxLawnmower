@@ -287,6 +287,14 @@ MonoBehaviour:
     m_Key: unlock
     m_Metadata:
       m_Items: []
+  - m_Id: 27366473416712192
+    m_Key: tutorial_training_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27369957817982976
+    m_Key: training_final
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
