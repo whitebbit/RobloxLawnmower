@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: day 6
   m_EditorClassIdentifier: 
   type: 0
-  count: 100000000
+  count: 150000
