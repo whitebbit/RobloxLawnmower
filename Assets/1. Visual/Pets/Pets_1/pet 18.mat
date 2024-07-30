@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: f49f6e4f9a477ca46afca364c48c3802, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DR_OUTLINE_ON
   - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _TEXTUREBLENDINGMODE_MULTIPLY
@@ -33,8 +34,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _OutlineEnabled: 1
+    - _OutlineWidth: 0.5
+    m_Colors:
+    - _ColorDim: {r: 0.2971698, g: 0.39234477, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4731395206779457634
 MonoBehaviour:
