@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cups_1
   m_EditorClassIdentifier: 
   id: cups_1
-  goal: 1
+  goal: 25
   gift: {fileID: 11400000, guid: f24ef0ac5dfcc974797bcf0f1b7bcb66, type: 2}
   titleID: cups_1
   icon: {fileID: 21300000, guid: 073e687a687a64137b4fe82914a8b1e1, type: 3}
