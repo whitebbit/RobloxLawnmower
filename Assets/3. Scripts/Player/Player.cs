@@ -24,7 +24,7 @@ namespace _3._Scripts.Player
     {
         [SerializeField] private Lawnmower lawnmower;
         [SerializeField] private PlayerLevel level;
-        
+
         public PetsHandler PetsHandler { get; private set; }
         public CharacterHandler CharacterHandler { get; private set; }
         public UpgradeHandler UpgradeHandler { get; private set; }
@@ -68,8 +68,8 @@ namespace _3._Scripts.Player
             return PlayerAnimator;
         }
 
-        public void SetLevelState(bool state) => level.gameObject.SetActive(state); 
-        
+        public void SetLevelState(bool state) => level.gameObject.SetActive(state);
+
         public float GetTrainingStrength(float strengthPerClick)
         {
             var pets = GBGames.saves.petsSave.selected.Sum(p => p.booster);
@@ -104,7 +104,7 @@ namespace _3._Scripts.Player
         {
             if (state)
             {
-                StageController.Instance.CurrentStage.SetupCurrentRewards();
+                UIManager.Instance.GetWidget<GrassProgressWidget>().Setup();
                 if (!GBGames.saves.tutorialComplete)
                 {
                     TutorialSystem.StepComplete("mowing");
@@ -115,10 +115,10 @@ namespace _3._Scripts.Player
 
             Movement.JumpBlocked = state;
             PlayerAnimator.SetGrounded(true);
+            PlayerAnimator.SetMowingState(state);
             lawnmower.gameObject.SetActive(state);
             Movement.ResetSpeed();
 
-            Animator().SetMowingState(state);
         }
 
         private void Start()
@@ -141,7 +141,7 @@ namespace _3._Scripts.Player
             if (data == null) return;
 
             GBGames.saves.lawnmowerLevel += 1;
-            StageController.Instance.CurrentStage.SetupCurrentRewards();
+            UIManager.Instance.GetWidget<GrassProgressWidget>().Setup();
             lawnmower.Initialize(data);
         }
 

@@ -16,7 +16,6 @@ namespace GBGamesPlugin
         public bool defaultLoaded;
         
         public SaveHandler<string> characterSaves = new();
-        public SaveHandler<string> trailSaves = new();
         public SaveHandler<string> upgradeSaves = new();
         public WalletSave walletSave = new();
         public PetSave petsSave = new();

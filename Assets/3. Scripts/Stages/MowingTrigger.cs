@@ -31,11 +31,10 @@ namespace _3._Scripts.Stages
 
             bot.SetMowingState(state);
         }
-        
+
         private void CheckPlayer(Component other)
         {
             if (!other.TryGetComponent(out Player.Player player)) return;
-
             var state = type switch
             {
                 MowingTriggerType.Start => true,

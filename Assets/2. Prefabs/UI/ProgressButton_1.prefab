@@ -300,11 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17f52e3190e4cb6be7ea936e598674b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableSprite: {fileID: 21300000, guid: c0ae9b20e922e4e32a7b5bd94a74f7d7, type: 3}
-  enabledSprite: {fileID: 21300000, guid: 43cd41da4856a4880b2669b2faa31301, type: 3}
-  rewardType: 1
   currencyImage: {fileID: 5115639669192193007}
   rewardText: {fileID: 2769365615833695789}
+  tutorial: {fileID: 0}
+  rewardType: 1
+  effect: {fileID: 3400154131304464156, guid: 469f7092be63a304f82faf0c38812156, type: 3}
 --- !u!114 &2162168502807520633
 MonoBehaviour:
   m_ObjectHideFlags: 0

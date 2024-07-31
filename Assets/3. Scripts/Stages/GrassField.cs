@@ -7,7 +7,6 @@ using _3._Scripts.Player.Scriptables;
 using _3._Scripts.Stages.Scriptable;
 using _3._Scripts.Wallet;
 using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using Random = System.Random;
 

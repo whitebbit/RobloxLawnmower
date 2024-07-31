@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using _3._Scripts.Singleton;
 using _3._Scripts.Stages;
+using _3._Scripts.UI;
+using _3._Scripts.UI.Widgets;
 using GBGamesPlugin;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,12 +57,12 @@ namespace _3._Scripts.Boosters
             rewardBooster.onActivateBooster += () =>
             {
                 ChangeBoosterState("reward_booster", true);
-                StageController.Instance.CurrentStage.SetupCurrentRewards();
+                UIManager.Instance.GetWidget<GrassProgressWidget>().Setup();
             };
             rewardBooster.onDeactivateBooster += () =>
             {
                 ChangeBoosterState("reward_booster", false);
-                StageController.Instance.CurrentStage.SetupCurrentRewards();
+                UIManager.Instance.GetWidget<GrassProgressWidget>().Setup();
             };
         }
     }

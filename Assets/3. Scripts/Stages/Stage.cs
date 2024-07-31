@@ -42,16 +42,23 @@ namespace _3._Scripts.Stages
             OnGrassShaved = null;
         }
 
-        public void SetupCurrentRewards()
+        public bool IsMethodSubscribed(Action<float> method)
+        {
+            if (OnGrassShaved == null) return false;
+
+            var invocationList = OnGrassShaved.GetInvocationList();
+            return invocationList.Any(d => d.Method == method.Method);
+        }
+
+        public List<float> CurrentRewards()
         {
             var baseRewards = config.BaseRewardsCount;
             var currentLawnmower = Configuration.Instance.AllLawnmower
                 .FirstOrDefault(l => l.Level == GBGames.saves.lawnmowerLevel);
-
             var lawnmowerCupsBooster = currentLawnmower == null ? 1 : currentLawnmower.CupsBooster;
             var booster = BoostersHandler.Instance.GetBoosterState("reward_booster") ? 2 : 1;
             var currentRewards = from baseReward in baseRewards select baseReward * lawnmowerCupsBooster * booster;
-            UIManager.Instance.GetWidget<GrassProgressWidget>().Setup(currentRewards.ToList());
+            return currentRewards.ToList();
         }
 
         public void OnGrassCutDown()

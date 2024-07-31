@@ -9,8 +9,6 @@ namespace _3._Scripts.Saves
     public class DefaultDataProvider : Singleton<DefaultDataProvider>
     {
         [SerializeField] private CharacterItem defaultCharacter;
-        [SerializeField] private TrailItem defaultTrail;
-        [SerializeField] private UpgradeItem defaultUpgrade;
 
         private void Awake()
         {

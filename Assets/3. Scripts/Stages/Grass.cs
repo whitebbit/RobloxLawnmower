@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _3._Scripts.Sounds;
 using _3._Scripts.Stages.Scriptable;
 using DG.Tweening;
 using UnityEngine;
@@ -58,6 +59,7 @@ namespace _3._Scripts.Stages
             //_collider.enabled = false;
             Shaved = true;
 
+            SoundManager.Instance.PlayOneShot("cutdownd");
             StageController.Instance.CurrentStage.OnGrassCutDown();
         }
     }

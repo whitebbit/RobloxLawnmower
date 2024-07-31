@@ -62,7 +62,7 @@ namespace _3._Scripts.Debugger
         {
             mainLight.shadows = mainLight.shadows == LightShadows.None ? LightShadows.Soft : LightShadows.None;
         }
-        
+
 
         public void UnlockRandomPet()
         {
@@ -80,6 +80,34 @@ namespace _3._Scripts.Debugger
             _deltaTime += (Time.deltaTime - _deltaTime) * 0.1f;
             var fps = 1.0f / _deltaTime;
             fpsText.text = $"{fps:0.} FPS";
+        }
+
+        public static void TestMethod(Action action)
+        {
+            try
+            {
+                action?.Invoke();
+            }
+            catch (Exception e)
+            {
+                if (action == null) throw;
+
+                Debug.Log("-------Exception Log Start------");
+                Debug.Log($"Method Name: {action.Method.Name}");
+                Debug.Log($"Message: {e.Message}");
+                if (e.Data.Count > 0)
+                {
+                    Debug.Log($"Data:");
+                    foreach (var key in e.Data.Keys)
+                    {
+                        Debug.Log($"    - {key} - {e.Data[key]}");
+                    } 
+                }
+                Debug.Log($"StackTrace: {e.StackTrace}");
+                Debug.Log($"Source: {e.Source}");
+                Debug.Log("-------Exception Log End------");
+                throw;
+            }
         }
     }
 }

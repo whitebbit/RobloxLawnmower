@@ -24,8 +24,7 @@ namespace _3._Scripts.UI.Widgets
         [SerializeField] private List<ProgressButton> buttons = new();
         [SerializeField] private Transform tutorial;
 
-        [Tab("Rewards")] [SerializeField] private CurrencyType rewardType;
-        [SerializeField] private CurrencyCounterEffect effect;
+       
 
         public override IUITransition InTransition { get; set; }
         public override IUITransition OutTransition { get; set; }
@@ -36,17 +35,16 @@ namespace _3._Scripts.UI.Widgets
             OutTransition = transition;
         }
 
-        public void Setup(List<float> rewards)
+        public void Setup()
         {
             StageController.Instance.CurrentStage.OnGrassShaved -= OnGrassShaved;
-            
-            for (var i = 0; i < buttons.Count; i++)
+            var rewards = StageController.Instance.CurrentStage.CurrentRewards();
+            var count = Mathf.Min(buttons.Count, rewards.Count);
+
+            for (var i = 0; i < count; i++)
             {
-                var i1 = i;
-                buttons[i].RemoveAllListeners();
-                buttons[i].Interactable = progressBar.value >= 0.33 * (i + 1);
-                buttons[i].Initialize(rewards[i]);
-                buttons[i].AddListener(() => GetReward(rewards[i1]));
+                buttons[i].Interactable = progressBar.value >= 0.3f * (i + 1);
+                buttons[i].Initialize(rewards[i]); 
             }
 
             StageController.Instance.CurrentStage.OnGrassShaved += OnGrassShaved;
@@ -66,25 +64,7 @@ namespace _3._Scripts.UI.Widgets
             {
                 tutorial.gameObject.SetActive(true);
             }
-            
         }
         
-        private void GetReward(float reward)
-        {
-            var effectInstance = CurrencyEffectPanel.Instance.SpawnEffect(effect, rewardType, reward);
-            effectInstance.Initialize(rewardType, reward);
-            
-            GBGames.saves.achievementSaves.Update("cups_1", reward);
-            GBGames.saves.achievementSaves.Update("cups_100", reward);
-            GBGames.saves.achievementSaves.Update("cups_1000", reward);
-            
-            StageController.Instance.CurrentStage.RespawnGrassFields();
-            
-            if (!GBGames.saves.tutorialComplete)
-            {
-                tutorial.gameObject.SetActive(false);
-                GBGames.saves.tutorialComplete = true;
-            }
-        }
     }
 }

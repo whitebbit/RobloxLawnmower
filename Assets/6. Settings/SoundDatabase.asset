@@ -25,3 +25,5 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: f45c26b8c34c140fab490c90f967016c, type: 3}
   - id: jump
     sound: {fileID: 8300000, guid: 2e0dccecbf4834202833e6a134209a5f, type: 3}
+  - id: cutdownd
+    sound: {fileID: 8300000, guid: fff457e2a93b4fd4e825da34c3da4b74, type: 3}
