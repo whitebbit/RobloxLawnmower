@@ -8,7 +8,7 @@ namespace _3._Scripts
 
         private void Start()
         {
-            if (Camera.main != null) _target = Camera.main.transform; 
+           _target = CameraController.Instance.MainCamera; 
         }
 
         private void Update()

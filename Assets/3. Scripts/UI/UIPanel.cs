@@ -19,7 +19,7 @@ namespace _3._Scripts.UI
         protected override void OnClose()
         {
             base.OnClose();
-            if (!(this is MiniGamePanel))
+            if (!(this is MiniGamePanel) && !(this is TrainingPanel))
                 GBGames.GameplayStarted();
             UIManager.Instance.Active = false;
         }

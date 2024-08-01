@@ -8,7 +8,7 @@ namespace _3._Scripts
     public class CameraController : Singleton<CameraController>
     {
         [SerializeField] private CinemachineVirtualCameraBase mainCamera;
-
+        public Transform MainCamera => mainCamera.transform;
         private CinemachineVirtualCameraBase _currentCam;
 
         private void Start()
