@@ -58,7 +58,7 @@ namespace _3._Scripts.Actions
             }
         }
 
-        private const float CooldownTime = .75f; // Cooldown time in seconds
+        private float CooldownTime => BoostersHandler.Instance.GetBoosterState("auto_clicker_booster") ? .5f : 1f;
         private float _nextClickTime;
 
         private void Update()
@@ -70,6 +70,7 @@ namespace _3._Scripts.Actions
             _nextClickTime = Time.time + CooldownTime;
             Action();
         }
+
 
         private void Action()
         {
@@ -115,7 +116,7 @@ namespace _3._Scripts.Actions
             player.PlayerAnimator.SetTrigger("StartTraining");
             player.PlayerAnimator.SetBool("Training", true);
             player.PetsHandler.SetState(false);
-            
+
             _canTraining = true;
             tutorial.gameObject.SetActive(false);
         }
@@ -130,7 +131,7 @@ namespace _3._Scripts.Actions
                 player.Movement.Blocked = false;
                 player.PetsHandler.SetState(true);
                 player.SetLevelState(true);
-                
+
                 InputHandler.Instance.SetState(true);
                 CameraController.Instance.SwapToMain();
                 UIManager.Instance.GetPanel<TrainingPanel>().Enabled = false;

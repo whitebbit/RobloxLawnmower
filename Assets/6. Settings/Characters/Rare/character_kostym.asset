@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_kostym
   icon: {fileID: 21300000, guid: 108f9060d89a77841ba1c2d2d43fc34b, type: 3}
   rarity: 1
+  purchaseType: 0
   currencyType: 1
   price: 50
   booster: 6
-  prefab: {fileID: 221962451348838131, guid: 2662f24426575ab4793c434863e7e33c, type: 3}
+  skin: {fileID: 2100000, guid: cc6922252a6a84d428339ba701250343, type: 2}

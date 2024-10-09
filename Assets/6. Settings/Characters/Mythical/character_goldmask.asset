@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_goldmask
   icon: {fileID: 21300000, guid: ccdfe0f31669a2a4ba3ebda5de8a6be6, type: 3}
   rarity: 2
+  purchaseType: 0
   currencyType: 1
   price: 6000
   booster: 45
-  prefab: {fileID: 5665135970736663166, guid: 88d3eb3f4e7555f43bdd070cc9eb0487, type: 3}
+  skin: {fileID: 2100000, guid: 587b80b0b73a9b44eafc5802acb6aefc, type: 2}

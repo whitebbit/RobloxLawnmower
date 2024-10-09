@@ -8,12 +8,11 @@ namespace _3._Scripts.UI.Structs
     public struct RarityTable
     {
         [SerializeField] private Rarity rarity;
-        [SerializeField] private Sprite table;
+        [SerializeField] private string titleID;
         [SerializeField] private Color mainColor;
         [SerializeField] private Color additionalColor;
         public Rarity Rarity => rarity;
-        public Sprite Table => table;
-
+        public string TitleID => titleID;
         public Color MainColor => mainColor;
         public Color AdditionalColor => additionalColor;
     }

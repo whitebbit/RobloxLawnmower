@@ -45,7 +45,7 @@ namespace _3._Scripts.Stages
             StopAllCoroutines();
             StartCoroutine(SpawnBoltsByTime());
             _resistance = data.Resistance;
-            recommendationText.text = $"<sprite index=1>{data.Resistance}";
+            recommendationText.text = $"<sprite index=1>{WalletManager.ConvertToWallet((decimal) data.Resistance)}";
             return _grasses;
         }
 

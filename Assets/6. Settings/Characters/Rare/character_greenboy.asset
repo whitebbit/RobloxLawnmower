@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_greenboy
   icon: {fileID: 21300000, guid: 94b6eed1c7e61cc4eae9cb7791a24a97, type: 3}
   rarity: 1
+  purchaseType: 0
   currencyType: 1
   price: 15
   booster: 3
-  prefab: {fileID: 5251937394463488179, guid: 5f617b84813e787459e04bd5b2f2807b, type: 3}
+  skin: {fileID: 2100000, guid: f439e43425db82642b72bb872b00ef4b, type: 2}

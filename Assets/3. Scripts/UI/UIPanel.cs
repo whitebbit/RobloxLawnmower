@@ -11,17 +11,15 @@ namespace _3._Scripts.UI
         protected override void OnOpen()
         {
             base.OnOpen();
-            if (!(this is MiniGamePanel))
-                GBGames.GameplayStopped();
-            UIManager.Instance.Active = true;
+            if (!(this is TrainingPanel))
+                UIManager.Instance.Active = true;
         }
 
         protected override void OnClose()
         {
             base.OnClose();
-            if (!(this is MiniGamePanel) && !(this is TrainingPanel))
-                GBGames.GameplayStarted();
-            UIManager.Instance.Active = false;
+            if (!(this is TrainingPanel))
+                UIManager.Instance.Active = false;
         }
     }
 }

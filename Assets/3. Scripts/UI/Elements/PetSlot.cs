@@ -16,10 +16,8 @@ namespace _3._Scripts.UI.Elements
 {
     public class PetSlot : MonoBehaviour
     {
-        [Tab("Rarity Tables")] [SerializeField]
-        private List<RarityTable> rarityTables = new();
 
-        [Tab("UI")] [SerializeField] private Image icon;
+        [SerializeField] private Image icon;
         [SerializeField] private Image table;
         [SerializeField] private Image equipped;
         [SerializeField] private Image selected;
@@ -35,7 +33,8 @@ namespace _3._Scripts.UI.Elements
         public void Initialize(PetSaveData petSaveData)
         {
             var data = Configuration.Instance.GetPet(petSaveData.dataID);
-            var rarity = rarityTables.FirstOrDefault(p => data is not null && p.Rarity == data.Rarity);
+            var rarity = Configuration.Instance.GetRarityTable(data.Rarity);
+
 
             SaveData = petSaveData;
             icon.gameObject.SetActive(true);
@@ -43,7 +42,7 @@ namespace _3._Scripts.UI.Elements
             if (data == null) return;
 
             icon.sprite = data.Icon;
-            table.sprite = rarity.Table;
+            table.color = rarity.MainColor;
 
             Unselect();
             SetEquippedState();

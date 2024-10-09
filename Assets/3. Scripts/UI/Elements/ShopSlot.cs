@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _3._Scripts.Config;
 using _3._Scripts.Currency.Scriptable;
 using _3._Scripts.Localization;
 using _3._Scripts.UI.Scriptable.Shop;
@@ -18,9 +19,6 @@ namespace _3._Scripts.UI.Elements
 {
     public class ShopSlot : MonoBehaviour
     {
-        [Tab("Rarity Tables")] [SerializeField]
-        private List<RarityTable> rarityTables = new();
-
         [Tab("UI")] [SerializeField] private TMP_Text title;
         [SerializeField] private Image glow;
         [SerializeField] private Image icon;
@@ -41,8 +39,8 @@ namespace _3._Scripts.UI.Elements
 
         public void SetView(ShopItem item)
         {
-            var rarity = rarityTables.FirstOrDefault(r => r.Rarity == item.Rarity);
-            table.sprite = rarity.Table;
+            var rarity = Configuration.Instance.GetRarityTable(item.Rarity);
+            table.color = rarity.MainColor;
             glow.color = rarity.MainColor;
             backGlow.color = rarity.AdditionalColor;
             icon.sprite = item.Icon;

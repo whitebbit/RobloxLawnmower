@@ -15,7 +15,8 @@ namespace _3._Scripts.Boosters
     public class BoostersHandler : Singleton<BoostersHandler>
     {
         [Tab("Buttons")]
-        [SerializeField] private BoosterButton autoClickerButton;
+        [SerializeField] private BoosterButtonSwitcher autoClickerButton;
+        [SerializeField] private BoosterButton autoClickerBoosterButton;
         [SerializeField] private BoosterButton rewardBooster;
         [Tab("Debug")]
         [SerializeField] private List<BoosterState> boosters = new();
@@ -53,6 +54,10 @@ namespace _3._Scripts.Boosters
         {
             autoClickerButton.onActivateBooster += () => ChangeBoosterState("auto_clicker", true);
             autoClickerButton.onDeactivateBooster += () => ChangeBoosterState("auto_clicker", false);
+            
+            autoClickerBoosterButton.onActivateBooster += () => ChangeBoosterState("auto_clicker_booster", true);
+            autoClickerBoosterButton.onDeactivateBooster += () => ChangeBoosterState("auto_clicker_booster", false);
+            
 
             rewardBooster.onActivateBooster += () =>
             {

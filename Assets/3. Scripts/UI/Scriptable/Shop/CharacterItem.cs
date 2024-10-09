@@ -9,10 +9,9 @@ namespace _3._Scripts.UI.Scriptable.Shop
     {
         [SerializeField] private float booster;
         [Tab("Prefab")] 
-        [SerializeField] private Character prefab;
+        [SerializeField] private Material skin;
 
-        public Character Prefab => prefab;
-
+        public Material Skin => skin;
         public float Booster => booster;
         public override string Title()
         {

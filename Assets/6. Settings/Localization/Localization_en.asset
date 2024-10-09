@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9685054192230400
-    m_Localized: Delete
+    m_Localized: Remove unwanted pets
     m_Metadata:
       m_Items: []
   - m_Id: 9762012313821184
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15207861625954304
-    m_Localized: The advertisement will start in {value}
+    m_Localized: AD in {value}
     m_Metadata:
       m_Items:
       - rid: 3203987063427825692
@@ -304,6 +304,38 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 27369957817982976
     m_Localized: Click on the star to get cups
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53056762751885312
+    m_Localized: Get <sprite index=4>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53066778540122112
+    m_Localized: The backpack with pets is full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53068112165216256
+    m_Localized: New pet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53069287807655936
+    m_Localized: Get random pet <sprite index=4>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53079484424921088
+    m_Localized: Speed X2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153055289516032
+    m_Localized: Rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153101284253696
+    m_Localized: Mythical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153142547816448
+    m_Localized: Legendary
     m_Metadata:
       m_Items: []
   references:

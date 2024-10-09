@@ -295,6 +295,40 @@ MonoBehaviour:
     m_Key: training_final
     m_Metadata:
       m_Items: []
+  - m_Id: 53056762751885312
+    m_Key: get_ad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53066778540122112
+    m_Key: max_pet_unlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53068112165216256
+    m_Key: offer_pet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53069287807655936
+    m_Key: get_random_pet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53079484424921088
+    m_Key: autoclicker_booster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153055289516032
+    m_Key: rarity_rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153101284253696
+    m_Key: rarity_mythical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53153142547816448
+    m_Key: 'rarity_legendary
+
+'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

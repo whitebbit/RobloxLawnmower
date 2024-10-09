@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using _3._Scripts.Config;
-using _3._Scripts.Currency.Scriptable;
 using _3._Scripts.Sounds;
-using _3._Scripts.UI.Elements;
+using _3._Scripts.UI.Elements.ShopSlots;
 using _3._Scripts.UI.Panels.Base;
 using _3._Scripts.UI.Scriptable.Shop;
-using GBGamesPlugin;
 using UnityEngine;
 using VInspector;
 
 namespace _3._Scripts.UI.Panels
 {
-    public abstract class ShopPanel<T> : SimplePanel where T : ShopItem
+    public abstract class ShopPanel<T, T1> : SimplePanel where T : ShopItem where T1 : BaseShopSlot
     {
-        [Tab("Components")] [SerializeField] private Transform container;
-        [SerializeField] private ShopSlot prefab;
+        [Tab("Components")] 
+        [SerializeField] private Transform container;
+        [SerializeField] private T1 prefab;
 
-        private readonly List<ShopSlot> _shopSlots = new();
+        private readonly List<T1> _shopSlots = new();
         protected abstract IEnumerable<T> ShopItems();
 
         public override void Initialize()
@@ -31,12 +28,11 @@ namespace _3._Scripts.UI.Panels
 
         protected override void OnOpen()
         {
-            base.OnOpen();
             SetSlotsState();
         }
 
        
-        protected virtual void OnSpawnItems(ShopSlot slot, T data)
+        protected virtual void OnSpawnItems(T1 slot, T data)
         {
         }
 
@@ -46,7 +42,6 @@ namespace _3._Scripts.UI.Panels
             foreach (var item in items)
             {
                 var obj = Instantiate(prefab, container);
-                var currency = Configuration.Instance.GetCurrency(item.CurrencyType);
                 obj.SetView(item);
                 obj.SetAction(() => OnClick(item.ID));
                 OnSpawnItems(obj, item);
@@ -85,7 +80,7 @@ namespace _3._Scripts.UI.Panels
             }
         }
 
-        protected ShopSlot GetSlot(string id) => _shopSlots.FirstOrDefault(s => s.Data.ID == id);
+        protected T1 GetSlot(string id) => _shopSlots.FirstOrDefault(s => s.Data.ID == id);
         protected abstract bool ItemUnlocked(string id);
         protected abstract bool IsSelected(string id);
         protected abstract bool Select(string id);

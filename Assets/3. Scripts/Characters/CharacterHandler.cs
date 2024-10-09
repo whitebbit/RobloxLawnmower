@@ -8,24 +8,21 @@ namespace _3._Scripts.Characters
     {
         public Character Current { get; private set; }
 
-        public void SetCharacter(string id, Transform parent)
+        public CharacterHandler(Character character)
         {
-            DeleteCharacter();
-            SpawnCharacter(id, parent);
+            Current = character;
         }
 
-        private void SpawnCharacter(string id, Transform parent)
+        public void SetCharacter(string id)
         {
-            var character = Configuration.Instance.AllCharacters.FirstOrDefault(c => c.ID == id)?.Prefab;
-            Current = Object.Instantiate(character, parent);
-            Current.transform.localPosition = -Vector3.up;
-            Current.Initialize();
+            Initialize(id);
         }
 
-        private void DeleteCharacter()
+        private void Initialize(string id)
         {
-            if (Current == null) return;
-            Object.Destroy(Current.gameObject);
+            var character = Configuration.Instance.AllCharacters.FirstOrDefault(c => c.ID == id);
+            if (character is not null) 
+                Current.Initialize(character.Skin);
         }
     }
 }

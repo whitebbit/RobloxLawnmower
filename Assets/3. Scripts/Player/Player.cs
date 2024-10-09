@@ -24,6 +24,7 @@ namespace _3._Scripts.Player
     {
         [SerializeField] private Lawnmower lawnmower;
         [SerializeField] private PlayerLevel level;
+        [SerializeField] private Character character;
 
         public PetsHandler PetsHandler { get; private set; }
         public CharacterHandler CharacterHandler { get; private set; }
@@ -42,7 +43,7 @@ namespace _3._Scripts.Player
             PlayerAnimator = GetComponent<PlayerAnimator>();
             Movement = GetComponent<PlayerMovement>();
             PetsHandler = new PetsHandler();
-            CharacterHandler = new CharacterHandler();
+            CharacterHandler = new CharacterHandler(character);
             UpgradeHandler = new UpgradeHandler(CharacterHandler);
             _characterController = GetComponent<CharacterController>();
         }
@@ -163,7 +164,7 @@ namespace _3._Scripts.Player
         private void InitializeCharacter()
         {
             var id = GBGames.saves.characterSaves.current;
-            CharacterHandler.SetCharacter(id, transform);
+            CharacterHandler.SetCharacter(id);
         }
 
         public void InitializeUpgrade()

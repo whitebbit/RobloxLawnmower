@@ -17,8 +17,7 @@ namespace _3._Scripts.UI.Elements
         [Tab("UI")] 
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text title;
-        [SerializeField] private TMP_Text receiveText;
-        [SerializeField] private TMP_Text receivedText;
+        [SerializeField] private CanvasGroup receiveImage;
         [SerializeField] private Image gotImage;
         
         [Tab("Timer")]
@@ -37,19 +36,16 @@ namespace _3._Scripts.UI.Elements
                 timer.StartTimer(timeToTake);
                 timer.OnTimerEnd += () =>
                 {
-                    receiveText.gameObject.SetActive(true);
-                    receiveText.DOFade(1, 0f);
+                    receiveImage.gameObject.SetActive(true);
+                    receiveImage.DOFade(1, 0.25f);
 
                     timer.gameObject.SetActive(false);
-                    
                 };
                 
-                gotImage.DOFade(0, 0f);
+                gotImage.Fade(0);
                 gotImage.gameObject.SetActive(false);
-                receivedText.DOFade(0, 0f);
-                receivedText.gameObject.SetActive(false);
-                receiveText.DOFade(0, 0f);
-                receiveText.gameObject.SetActive(false);
+                receiveImage.alpha =0;
+                receiveImage.gameObject.SetActive(false);
 
                 _firstInitialization = true;
             }
@@ -66,9 +62,7 @@ namespace _3._Scripts.UI.Elements
             
             gotImage.gameObject.SetActive(true);
             gotImage.DOFade(1, 0.15f);
-            receivedText.gameObject.SetActive(true);
-            receivedText.DOFade(1, 0.15f);
-            receiveText.DOFade(0, 0.15f);
+            receiveImage.gameObject.SetActive(false);
 
             _rewarded = true;
             timer.TimerStopped = true;

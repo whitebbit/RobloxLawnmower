@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_coolguy
   icon: {fileID: 21300000, guid: 8b8faec4441e4d743a69b000a0bf5f30, type: 3}
   rarity: 1
+  purchaseType: 0
   currencyType: 1
   price: 3
   booster: 2
-  prefab: {fileID: 2339035969318698625, guid: 7ef9f71ffbcea784e879f7457b5b85ac, type: 3}
+  skin: {fileID: 2100000, guid: eea6f511cd526dd448ea600e45d14b84, type: 2}

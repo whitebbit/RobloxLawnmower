@@ -29,7 +29,6 @@ namespace _3._Scripts.Tutorial
             if(obj != stepName) return;
             
             view.gameObject.SetActive(true);
-            Debug.Log(view.gameObject.activeSelf);
         }
         
         private void OnTutorialStepComplete(string obj)
@@ -37,7 +36,6 @@ namespace _3._Scripts.Tutorial
             if(obj != stepName) return;
             
             view.gameObject.SetActive(false);
-            Debug.Log(view.gameObject.activeSelf);
         }
         
         

@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_dogday
   icon: {fileID: 21300000, guid: 557f97c5ab330484c83a917421f50e05, type: 3}
   rarity: 3
+  purchaseType: 0
   currencyType: 1
   price: 650000
   booster: 300
-  prefab: {fileID: 5034651712894487358, guid: 935b5cb9f4612a840b8e2368e0270c4b, type: 3}
+  skin: {fileID: 2100000, guid: 2ff1d4f9391cb4b41b923f53d8980601, type: 2}

@@ -15,7 +15,8 @@ MonoBehaviour:
   id: character_pomni
   icon: {fileID: 21300000, guid: 00f8f0e0ed5a54d4db6dcfffcd1bff57, type: 3}
   rarity: 3
+  purchaseType: 0
   currencyType: 1
   price: 5000000
   booster: 725
-  prefab: {fileID: 8236743331774928071, guid: d495b5d031b569b44b28a998aeebb94c, type: 3}
+  skin: {fileID: 2100000, guid: ed9a863dee0e43e42a63854a51edf8ad, type: 2}

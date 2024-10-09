@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7564962597454202340}
   percent: {fileID: 3623956718908507503}
+  table: {fileID: 7626784538189626487}
 --- !u!1 &8656007666845916160
 GameObject:
   m_ObjectHideFlags: 0

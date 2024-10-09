@@ -8,7 +8,6 @@ namespace _3._Scripts
     [RequireComponent(typeof(TMP_Text))]
     public class Timer : MonoBehaviour
     {
-        private float _durationInSeconds;
         private float _startTime;
         private bool _isRunning;
         private bool _isPaused;
@@ -17,6 +16,7 @@ namespace _3._Scripts
         public event Action OnTimerStart;
         public event Action OnTimerEnd;
 
+        public float DurationInSeconds { get; private set; }
         private bool _timerStopped;
         public bool TimerStopped
         {
@@ -31,7 +31,7 @@ namespace _3._Scripts
                 }
                 else
                 {
-                    StartTimer(_durationInSeconds - (Time.time - _startTime));
+                    StartTimer(DurationInSeconds - (Time.time - _startTime));
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace _3._Scripts
         {
             if (!_isRunning || _isPaused) return;
 
-            var remainingTime = Mathf.Max(0, _durationInSeconds - (Time.time - _startTime));
+            var remainingTime = Mathf.Max(0, DurationInSeconds - (Time.time - _startTime));
             _timerText.text = FormatTime(remainingTime);
 
             if (!(remainingTime <= 0)) return;
@@ -56,7 +56,7 @@ namespace _3._Scripts
         public void StartTimer(float timeInSeconds)
         {
             OnTimerStart?.Invoke();
-            _durationInSeconds = timeInSeconds;
+            DurationInSeconds = timeInSeconds;
             _startTime = Time.time;
             _isRunning = true;
             _isPaused = false;
@@ -65,12 +65,12 @@ namespace _3._Scripts
 
         public bool TimerEnd()
         {
-            return Time.time - _startTime >= _durationInSeconds;
+            return Time.time - _startTime >= DurationInSeconds;
         }
 
         public TimeSpan TimeToEnd()
         {
-            float remainingTime = Mathf.Max(0, _durationInSeconds - (Time.time - _startTime));
+            float remainingTime = Mathf.Max(0, DurationInSeconds - (Time.time - _startTime));
             return TimeSpan.FromSeconds(remainingTime);
         }
 

@@ -242,19 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dca6f37d3747fa9d1185016c14c484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarityTables:
-  - rarity: 1
-    table: {fileID: 21300000, guid: b2c98bfbb087c4b05ba8430f094096d7, type: 3}
-    mainColor: {r: 0.17254902, g: 0.74509805, b: 1, a: 1}
-    additionalColor: {r: 0, g: 0.65882355, b: 1, a: 1}
-  - rarity: 2
-    table: {fileID: 21300000, guid: ae8f1b0f7f2424a2aa6c639e8f88de23, type: 3}
-    mainColor: {r: 0.7843138, g: 0.5019608, b: 0.9960785, a: 1}
-    additionalColor: {r: 0.69803923, g: 0.37647063, b: 0.9921569, a: 1}
-  - rarity: 3
-    table: {fileID: 21300000, guid: 94c2bb5b3bc5e4127901d01daca2a45f, type: 3}
-    mainColor: {r: 1, g: 0.8705883, b: 0, a: 1}
-    additionalColor: {r: 1, g: 0.78823537, b: 0, a: 1}
   icon: {fileID: 1148454800296901692}
   table: {fileID: 4063928168659508931}
   equipped: {fileID: 528041047171259424}
@@ -371,7 +358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 94c2bb5b3bc5e4127901d01daca2a45f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0bdcf4700e3143dd941fff695e8c391, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

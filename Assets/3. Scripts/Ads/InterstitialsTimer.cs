@@ -1,8 +1,16 @@
 using System;
 using System.Collections;
+using _3._Scripts.Boosters;
 using _3._Scripts.Config;
+using _3._Scripts.Currency.Enums;
 using _3._Scripts.Localization;
 using _3._Scripts.Singleton;
+using _3._Scripts.UI;
+using _3._Scripts.UI.Effects;
+using _3._Scripts.UI.Elements;
+using _3._Scripts.UI.Panels;
+using _3._Scripts.Wallet;
+using DG.Tweening;
 using GBGamesPlugin;
 using UnityEngine;
 using UnityEngine.Localization.Components;
@@ -11,18 +19,28 @@ namespace _3._Scripts.Ads
 {
     public class InterstitialsTimer : Singleton<InterstitialsTimer>
     {
-        [SerializeField] private GameObject secondsPanelObject;
+
+        [SerializeField] private CanvasGroup secondsPanelObject;
         [SerializeField] private LocalizeStringEvent localizedText;
+        [SerializeField] private CurrencyCounterEffect counterEffect;
 
         public bool Active { get; private set; }
         public bool Blocked { get; set; }
 
         private void Start()
         {
-            if (secondsPanelObject)
-                secondsPanelObject.SetActive(false);
+            secondsPanelObject.alpha = 0;
             
+            if (!Configuration.Instance.InterByTime) return;
+            
+            GBGames.InterstitialClosedCallback += Reward;
             StartCoroutine(CheckTimerAd());
+        }
+
+        private void Reward()
+        {
+            var effectInstance = CurrencyEffectPanel.Instance.SpawnEffect(counterEffect, CurrencyType.Second, 25);
+            effectInstance.Initialize(CurrencyType.Second, 25);
         }
 
         private IEnumerator CheckTimerAd()
@@ -32,11 +50,11 @@ namespace _3._Scripts.Ads
             {
                 if (CanShow())
                 {
-                    _objSecCounter = 2;
+                    _objSecCounter = 3;
                     if (secondsPanelObject)
-                        secondsPanelObject.SetActive(true);
+                        secondsPanelObject.DOFade(1, 0.25f);
 
-                    StartCoroutine(TimerAdShow());
+                    _currentCoroutine = StartCoroutine(TimerAdShow());
                     yield return checking = false;
                 }
 
@@ -44,7 +62,9 @@ namespace _3._Scripts.Ads
             }
         }
 
-        private int _objSecCounter = 2;
+        private int _objSecCounter = 3;
+        private Coroutine _backupCoroutine;
+        private Coroutine _currentCoroutine;
 
         private IEnumerator TimerAdShow()
         {
@@ -59,16 +79,16 @@ namespace _3._Scripts.Ads
                     yield return new WaitForSeconds(1.0f);
                 }
 
-                StartCoroutine(BackupTimerClosure());
+                _backupCoroutine = StartCoroutine(BackupTimerClosure());
                 GBGames.ShowInterstitial();
 
                 while (!GBGames.NowAdsShow)
                     yield return null;
-
-                secondsPanelObject.SetActive(false);
-                _objSecCounter = 2;
                 
-                StopCoroutine(BackupTimerClosure());
+                secondsPanelObject.alpha = 0;
+                _objSecCounter = 3;
+
+                StopCoroutine(_backupCoroutine);
                 StartCoroutine(CheckTimerAd());
 
                 Active = false;
@@ -78,18 +98,18 @@ namespace _3._Scripts.Ads
         private IEnumerator BackupTimerClosure()
         {
             yield return new WaitForSeconds(2.5f);
-            
-            secondsPanelObject.SetActive(false);
-            _objSecCounter = 2;
+
+            secondsPanelObject.alpha = 0;
+            _objSecCounter = 3;
             Active = false;
-            StopCoroutine(TimerAdShow());
+            StopCoroutine(_currentCoroutine);
             StartCoroutine(CheckTimerAd());
         }
 
 
         private bool CanShow()
         {
-            return !GBGames.NowAdsShow && !Blocked && GBGames.CanShowInterstitial;
+            return !GBGames.NowAdsShow && !Blocked && GBGames.CanShowInterstitial && !UIManager.Instance.Active;
         }
     }
 }

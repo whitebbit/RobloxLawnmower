@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using _3._Scripts.Config;
 using _3._Scripts.Sounds;
 using _3._Scripts.Stages.Scriptable;
 using DG.Tweening;
+using GBGamesPlugin;
 using UnityEngine;
 using VInspector;
+using DeviceType = InstantGamesBridge.Modules.Device.DeviceType;
 
 namespace _3._Scripts.Stages
 {
@@ -53,14 +56,32 @@ namespace _3._Scripts.Stages
         public void CutDown()
         {
             if (Shaved) return;
-            particle.Play();
+            PlayParticle();
             model.DOScale(Vector3.zero, 0.35f).SetEase(Ease.InOutBack)
                 .OnComplete(() => model.gameObject.SetActive(false));
-            //_collider.enabled = false;
             Shaved = true;
 
             SoundManager.Instance.PlayOneShot("cutdownd");
             StageController.Instance.CurrentStage.OnGrassCutDown();
+        }
+
+        private void PlayParticle()
+        {
+            switch (GBGames.deviceType)
+            {
+                case DeviceType.Mobile:
+                    break;
+                case DeviceType.Tablet:
+                    break;
+                case DeviceType.Desktop:
+                    if(Configuration.Instance.UseGrassParticles)
+                        particle.Play();
+                    break;
+                case DeviceType.TV:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

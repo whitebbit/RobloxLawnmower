@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
-using _3._Scripts.UI.Scriptable.Shop;
-using _3._Scripts.Upgrades;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace _3._Scripts.Characters
@@ -13,16 +8,21 @@ namespace _3._Scripts.Characters
     public class Character : MonoBehaviour
     {
         [SerializeField]private Animator animator;
+        [SerializeField] private List<SkinnedMeshRenderer> renderers = new();
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            animator = GetComponent<Animator>();
+            //animator = GetComponent<Animator>();
         }
 #endif
 
-        public void Initialize()
+        public void Initialize(Material skin)
         {
+            foreach (var meshRenderer in renderers)
+            {
+                meshRenderer.material = skin;
+            }
             Player.Player.instance.PlayerAnimator.SetAvatar(animator.avatar);
         }
     }
