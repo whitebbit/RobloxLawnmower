@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cac3bca2d14b39ace880293787f63a, type: 3}
+  m_Name: 2 Snake
+  m_EditorClassIdentifier: 
+  id: snake_pet
+  icon: {fileID: 21300000, guid: a04133bc544876f4381b849538afbe3b, type: 3}
+  rarity: 2
+  purchaseType: 0
+  currencyType: 0
+  price: 0
+  dropPercent: 13
+  prefab: {fileID: 1989091238207132324, guid: dcfaf383d5bf4a84c94237a2f12c1fa2, type: 3}
+  boosterType: 0
+  minBooster: 850
+  maxBooster: 850

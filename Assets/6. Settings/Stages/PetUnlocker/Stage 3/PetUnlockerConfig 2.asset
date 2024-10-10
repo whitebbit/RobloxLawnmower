@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b500adbf8784a3b82f35eb8c403d4b0, type: 3}
+  m_Name: PetUnlockerConfig 2
+  m_EditorClassIdentifier: 
+  pets:
+  - {fileID: 11400000, guid: bf8b632fa3e45b34aab18d59a4212502, type: 2}
+  - {fileID: 11400000, guid: dc6cd8a86273b54428cfca6ca420e514, type: 2}
+  - {fileID: 11400000, guid: a7fdd135d7b53ba43b3921e31b9b3d52, type: 2}
+  price: 150000

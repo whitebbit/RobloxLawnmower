@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5207a8cd19d0430889e1980920670ae5, type: 3}
+  m_Name: GrassData 1
+  m_EditorClassIdentifier: 
+  grassMaterial: {fileID: 2100000, guid: c7943e690fb8f124f9344143c3ca0c7a, type: 2}
+  grassParticleColor: {r: 0.11011835, g: 0.8862745, b: 0.0862745, a: 1}
+  resistance: 8.5e+9

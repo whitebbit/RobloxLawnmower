@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: StageConfig 5
   m_EditorClassIdentifier: 
   id: 5
+  maxBoltCount: 16
+  giftBooster: 200
   teleportPrice: 150000000
-  giftBooster: 5000
-  petUnlocker: {fileID: 11400000, guid: bd67df9d61279de43bc9309e4fb4b6c3, type: 2}
+  baseRewardsCount:
+  - 200000
+  - 240000
+  - 290000
+  petUnlockers:
+  - {fileID: 11400000, guid: e96234b29fa074f4ca5fc28d1d7c7249, type: 2}
+  - {fileID: 11400000, guid: ec35dd1dacf3d7144a383092db052a74, type: 2}
+  - {fileID: 11400000, guid: 53d9ea30518231d4ab8a8d88062246c4, type: 2}
   trainings:
-  - {fileID: 11400000, guid: c1d0d877c887c2d42bcc5f0c2b72c863, type: 2}
-  - {fileID: 11400000, guid: 0b590adb4a56e974fafc0f9853c1d297, type: 2}
-  - {fileID: 11400000, guid: efe50e003f9a6c94d8df93787271ed1f, type: 2}
-  - {fileID: 11400000, guid: 94a535c51a52e0e42a1954ed97fde7c8, type: 2}
-  - {fileID: 11400000, guid: 06acb0fab0db6184989fbdd70e9de7a7, type: 2}
+  - {fileID: 11400000, guid: 629cfcf4a3f80794bbf2aed655f0f04b, type: 2}
+  - {fileID: 11400000, guid: 8dce323f65cd4b2428af9ca044fc9aa2, type: 2}
+  - {fileID: 11400000, guid: 19ba991f33c3dfe4dbb6f718bcdb9598, type: 2}
   grassData:
-  - {fileID: 11400000, guid: e418e068b57c6f54c8d03c3493ca180b, type: 2}
+  - {fileID: 11400000, guid: f72286424b9e7d749b770356d0ab40b8, type: 2}
+  - {fileID: 11400000, guid: bb7f591b8efd95740b43c25b0288df31, type: 2}
+  - {fileID: 11400000, guid: dae9007a928dcc84188c31c67ef28e1d, type: 2}

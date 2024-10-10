@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cac3bca2d14b39ace880293787f63a, type: 3}
+  m_Name: 1 Pumpkin 1
+  m_EditorClassIdentifier: 
+  id: pumpkin_pet
+  icon: {fileID: 21300000, guid: 7dbb8984438c96a418f7e2142a58ce5e, type: 3}
+  rarity: 1
+  purchaseType: 0
+  currencyType: 0
+  price: 0
+  dropPercent: 35
+  prefab: {fileID: 5133892070346818555, guid: f780663713dd88a4f990fe9aea849bca, type: 3}
+  boosterType: 0
+  minBooster: 450
+  maxBooster: 450
